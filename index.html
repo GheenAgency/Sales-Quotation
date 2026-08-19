@@ -1,0 +1,2410 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حقيبة المبيعات — الخيارات الثلاثة وتسعير منصات التدريب | غين الرقمية</title>
+
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/RCKLxc5q/logo-gold.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Cairo', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            gold: '#D4A85A', goldLight: '#E8C989', goldDark: '#B28741',
+                            teal: '#F5F5F3', tealDark: '#062825', bgColor: '#F5F5F3',
+                            lightBeige: '#E6DFD5', white: '#FFFFFF', green: '#25D366',
+                            ok: '#1E7A5A', warn: '#B28741', alert: '#9C4A3C',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #F5F5F3; }
+        ::-webkit-scrollbar-thumb { background: #E6DFD5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4A85A; }
+
+        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(6, 40, 37, 0.05);
+            border-color: rgba(212, 168, 90, 0.4);
+            background: #FFFFFF;
+        }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+
+        body { font-weight: 400; }
+        h1, h2, h3, h4 { font-weight: 600; color: #062825; }
+        i { opacity: 0.9; }
+
+        .custom-bullets li { position: relative; padding-right: 1.75rem; }
+        .custom-bullets li::before {
+            content: "\f0da";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            color: #D4A85A;
+            font-size: 0.75rem;
+            top: 2px;
+        }
+
+        table { border-collapse: separate; border-spacing: 0; }
+
+        .seq-num { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; line-height: 1; }
+        .ltr-num { direction: ltr; unicode-bidi: embed; display: inline-block; }
+        .pill { font-size: 10px; padding: 2px 8px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+
+        /* شريط داخلي */
+        .internal-stripe {
+            background: repeating-linear-gradient(
+                -45deg, #9C4A3C, #9C4A3C 12px, #85402F 12px, #85402F 24px
+            );
+        }
+
+        /* الحاسبة */
+        .calc-input {
+            background: #FFFFFF; border: 1px solid #E6DFD5; border-radius: 10px;
+            padding: 8px 12px; font-size: 13px; font-family: 'Cairo', sans-serif;
+            color: #062825; width: 100%; direction: ltr; text-align: left;
+            font-variant-numeric: tabular-nums;
+        }
+        .calc-input:focus { outline: 2px solid #D4A85A; outline-offset: 1px; border-color: #D4A85A; }
+
+        .opt-card { cursor: pointer; transition: all .25s ease; }
+        .opt-card input:checked ~ .opt-body { }
+        .opt-card.selected {
+            border-color: #062825 !important;
+            box-shadow: 0 0 0 3px rgba(6,40,37,0.08);
+        }
+
+        .track-card { transition: all .25s ease; }
+        .track-card.selected {
+            border-color: #062825 !important;
+            box-shadow: 0 0 0 3px rgba(6,40,37,0.08);
+        }
+
+        .adj-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #E6DFD5; }
+        .adj-row:last-child { border-bottom: none; }
+
+        details > summary { cursor: pointer; list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] .chev { transform: rotate(-90deg); }
+        .chev { transition: transform .25s ease; }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: #fff; }
+            details { open: true; }
+            details > div { display: block !important; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in, .card-hover, .opt-card, .chev { animation: none; transition: none; }
+        }
+        :focus-visible { outline: 2px solid #D4A85A; outline-offset: 3px; border-radius: 6px; }
+    </style>
+</head>
+
+<body class="bg-brand-bgColor text-brand-tealDark font-sans antialiased selection:bg-brand-gold/20 selection:text-brand-tealDark relative min-h-screen overflow-x-hidden">
+
+    <div class="fixed inset-0 z-[-1] opacity-50"
+        style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNkNGU4NWEiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6bTIwIDIwaDIwdjIwSDIWMjB6TTAgMjBoMjB2MjBIMFYyMHoyMCAwaDIwdjIwSDIwVjB6Ii8+PC9nPjwvZz48L3N2Zz4=');">
+    </div>
+
+    <!-- شريط التحذير الداخلي -->
+    <div class="internal-stripe h-2 w-full"></div>
+    <div class="bg-brand-alert text-white text-center py-2.5 px-4 text-[11px] md:text-xs font-bold sticky top-0 z-50 shadow-md">
+        <i class="fas fa-lock ml-1.5"></i>
+        مستند داخلي لفريق المبيعات — يحتوي أوزان الجهد ومنطق التسعير. لا يُرسل للعميل ولا يُعرض على شاشته
+    </div>
+
+    <main class="max-w-6xl mx-auto px-4 md:px-6 py-10 space-y-12 relative z-10">
+
+        <!-- ============ HEADER ============ -->
+        <header class="flex flex-col items-center text-center space-y-6 border-b border-brand-lightBeige pb-8 animate-fade-in">
+            <div class="mb-2 bg-brand-white p-5 rounded-2xl border border-brand-lightBeige shadow-sm">
+                <img src="https://i.postimg.cc/RCKLxc5q/logo-gold.png" alt="شعار غين الرقمية" class="h-16 w-auto object-contain">
+            </div>
+            <div class="space-y-3">
+                <span class="bg-brand-gold/10 text-brand-goldDark border border-brand-gold/20 text-xs px-4 py-1.5 rounded-full font-semibold inline-block">
+                    حقيبة المبيعات — الإصدار الأول · أغسطس <span class="ltr-num">2026</span>
+                </span>
+                <h1 class="text-3xl md:text-[2.5rem] leading-[1.5]">
+                    منصات التدريب المتوافقة وطنيًا <br>
+                    <span class="text-brand-gold">النطاق والأوزان والخيارات الثلاثة والتسعير</span>
+                </h1>
+            </div>
+            <p class="text-sm md:text-base text-brand-tealDark/80 max-w-3xl leading-loose">
+                كل ما يحتاجه مندوب المبيعات لبناء عرض سعر والدفاع عنه: أرقام المشروع المرجعي،
+                أوزان الجهد لكل وحدة، ثلاثة خيارات جاهزة للطرح بالريال السعودي على مسارَي التنفيذ، حاسبة تسعير، أسئلة تأهيل،
+                ومعالجة الاعتراضات الشائعة.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 w-full pt-4 text-right">
+                <div class="bg-brand-white p-4 rounded-xl border border-brand-lightBeige">
+                    <p class="text-[11px] text-brand-tealDark/60 mb-1">الخيار الأول · ربط الرفع الوطني</p>
+                    <p class="text-xs font-semibold"><span class="ltr-num">25,000</span> ر.س</p>
+                </div>
+                <div class="bg-brand-white p-4 rounded-xl border border-brand-lightBeige">
+                    <p class="text-[11px] text-brand-tealDark/60 mb-1">الخيار الثاني · لوحة + تكامل</p>
+                    <p class="text-xs font-semibold"><span class="ltr-num">75,000</span> ر.س</p>
+                </div>
+                <div class="bg-brand-white p-4 rounded-xl border border-brand-lightBeige">
+                    <p class="text-[11px] text-brand-tealDark/60 mb-1">الخيار الثالث · الباقة الكاملة</p>
+                    <p class="text-xs font-semibold"><span class="ltr-num">95,000</span> ر.س</p>
+                </div>
+                <div class="bg-brand-tealDark p-4 rounded-xl border border-brand-tealDark">
+                    <p class="text-[11px] text-white/60 mb-1">مسار التطوير الأصلي</p>
+                    <p class="text-xs font-semibold text-brand-gold">ضعف السعر — × <span class="ltr-num">2</span></p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 no-print">
+                <a href="#quickstart" class="bg-brand-gold text-brand-tealDark px-6 py-2.5 rounded-xl text-xs font-bold hover:bg-brand-goldLight transition-colors flex items-center gap-2">
+                    <i class="fas fa-bolt"></i> الصفحة الواحدة — ابدأ من هنا
+                </a>
+                <button onclick="window.print()" class="bg-brand-tealDark text-white px-6 py-2.5 rounded-xl text-xs font-semibold hover:bg-brand-tealDark/90 transition-colors flex items-center gap-2">
+                    <i class="fas fa-print"></i> طباعة أو حفظ PDF
+                </button>
+            </div>
+        </header>
+
+        <!-- ============ QUICK START — ONE PAGE ============ -->
+        <section class="space-y-6" id="quickstart">
+            <div class="text-center">
+                <span class="bg-brand-ok/10 text-brand-ok border border-brand-ok/25 text-[11px] px-4 py-1.5 rounded-full font-semibold inline-block mb-3">
+                    ابدأ من هنا — إن لم تقرأ غير هذه الصفحة، تكفيك
+                </span>
+                <h2 class="text-2xl mb-2">الصفحة الواحدة</h2>
+                <p class="text-sm text-brand-tealDark/60 max-w-2xl mx-auto leading-relaxed">
+                    ثلاث خطوات: اسأل، اختر الخيار، اذكر السعر. باقي المستند تفصيل ترجع إليه عند الحاجة فقط
+                </p>
+            </div>
+
+            <!-- الخطوة 1 -->
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 md:p-7 shadow-sm space-y-4">
+                <h3 class="text-base flex items-center gap-3">
+                    <span class="bg-brand-tealDark text-brand-gold w-8 h-8 rounded-xl flex items-center justify-center text-sm font-bold shrink-0">1</span>
+                    اسأل ثلاثة أسئلة — لا تذكر أي رقم قبلها
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-brand-teal border border-brand-lightBeige rounded-xl p-4 space-y-2">
+                        <p class="text-xs font-bold">١. «عندكم موقع؟ وعندكم منصة تدريب شغّالة؟»</p>
+                        <p class="text-[11px] text-brand-tealDark/65 leading-relaxed">
+                            هذا وحده يحدّد الخيار. اسمع الإجابة كاملة قبل أن تتكلم.
+                        </p>
+                    </div>
+                    <div class="bg-brand-teal border border-brand-lightBeige rounded-xl p-4 space-y-2">
+                        <p class="text-xs font-bold">٢. «كم متدرّب تتوقّعون أول سنة؟»</p>
+                        <p class="text-[11px] text-brand-tealDark/65 leading-relaxed">
+                            أقل من بضعة آلاف ← ووردبريس. عشرات الآلاف ← تكلّم مع الفريق الفني.
+                        </p>
+                    </div>
+                    <div class="bg-brand-teal border border-brand-lightBeige rounded-xl p-4 space-y-2">
+                        <p class="text-xs font-bold">٣. «الاستضافة عندكم مشتركة ولا خادم مخصّص؟»</p>
+                        <p class="text-[11px] text-brand-tealDark/65 leading-relaxed">
+                            مشتركة ← نبّهه من الآن أنه سيحتاج خادمًا مخصّصًا، وهي تكلفة شهرية عليه.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الخطوة 2 -->
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 md:p-7 shadow-sm space-y-4">
+                <h3 class="text-base flex items-center gap-3">
+                    <span class="bg-brand-tealDark text-brand-gold w-8 h-8 rounded-xl flex items-center justify-center text-sm font-bold shrink-0">2</span>
+                    اختر الخيار من إجابته
+                </h3>
+
+                <div class="space-y-3">
+                    <div class="flex flex-col md:flex-row md:items-center gap-3 bg-brand-teal border border-brand-lightBeige rounded-xl p-4">
+                        <div class="md:w-1/2">
+                            <p class="text-[10.5px] text-brand-tealDark/55 mb-1">إذا قال</p>
+                            <p class="text-xs font-bold">«عندنا منصة تدريب شغّالة وراضين عنها، بس نحتاج الربط مع المركز الوطني»</p>
+                        </div>
+                        <i class="fas fa-arrow-left text-brand-gold hidden md:block"></i>
+                        <div class="md:w-1/2 flex items-center justify-between gap-3 bg-brand-white border border-brand-lightBeige rounded-lg p-3">
+                            <span class="text-xs font-bold">الخيار 1 — الربط فقط</span>
+                            <span class="text-base font-bold seq-num text-brand-tealDark"><span class="ltr-num">25,000</span> ر.س</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row md:items-center gap-3 bg-brand-gold/[0.07] border-2 border-brand-gold/35 rounded-xl p-4">
+                        <div class="md:w-1/2">
+                            <p class="text-[10.5px] text-brand-tealDark/55 mb-1">إذا قال</p>
+                            <p class="text-xs font-bold">«عندنا موقع تعريفي بس، وما عندنا منصة تدريب» <span class="text-brand-goldDark">— الأكثر تكرارًا</span></p>
+                        </div>
+                        <i class="fas fa-arrow-left text-brand-gold hidden md:block"></i>
+                        <div class="md:w-1/2 flex items-center justify-between gap-3 bg-brand-white border border-brand-gold/40 rounded-lg p-3">
+                            <span class="text-xs font-bold">الخيار 2 — لوحة + ربط</span>
+                            <span class="text-base font-bold seq-num text-brand-goldDark"><span class="ltr-num">75,000</span> ر.س</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row md:items-center gap-3 bg-brand-teal border border-brand-lightBeige rounded-xl p-4">
+                        <div class="md:w-1/2">
+                            <p class="text-[10.5px] text-brand-tealDark/55 mb-1">إذا قال</p>
+                            <p class="text-xs font-bold">«نبدأ من الصفر» أو «نبي نبيع الدورات أونلاين ونستقبل الدفع»</p>
+                        </div>
+                        <i class="fas fa-arrow-left text-brand-gold hidden md:block"></i>
+                        <div class="md:w-1/2 flex items-center justify-between gap-3 bg-brand-white border border-brand-lightBeige rounded-lg p-3">
+                            <span class="text-xs font-bold">الخيار 3 — الباقة الكاملة</span>
+                            <span class="text-base font-bold seq-num text-brand-tealDark"><span class="ltr-num">95,000</span> ر.س</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row md:items-center gap-3 bg-brand-tealDark rounded-xl p-4">
+                        <div class="md:w-1/2">
+                            <p class="text-[10.5px] text-white/50 mb-1">وإذا قال</p>
+                            <p class="text-xs font-bold text-white">«عندنا كراسة شروط تمنع ووردبريس» أو «عشرات الآلاف من المتدربين»</p>
+                        </div>
+                        <i class="fas fa-arrow-left text-brand-gold hidden md:block"></i>
+                        <div class="md:w-1/2 bg-white/10 border border-white/15 rounded-lg p-3">
+                            <p class="text-xs font-bold text-brand-goldLight">نفس الخيار × <span class="ltr-num">2</span></p>
+                            <p class="text-[10.5px] text-white/60 mt-1">
+                                <span class="ltr-num">50,000</span> · <span class="ltr-num">150,000</span> · <span class="ltr-num">190,000</span> ر.س — وأبلغ الفريق الفني
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الخطوة 3 -->
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 md:p-7 shadow-sm space-y-4">
+                <h3 class="text-base flex items-center gap-3">
+                    <span class="bg-brand-tealDark text-brand-gold w-8 h-8 rounded-xl flex items-center justify-center text-sm font-bold shrink-0">3</span>
+                    اذكر السعر بهذه الطريقة
+                </h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div class="bg-brand-teal border-r-4 border-brand-gold rounded-lg p-4 space-y-2">
+                        <p class="text-[10.5px] text-brand-tealDark/55">قُل حرفيًا</p>
+                        <p class="text-xs text-brand-tealDark/90 leading-loose">
+                            «المنصة كاملة بـ <span class="ltr-num font-bold">75,000</span> ريال، غير شاملة الضريبة.
+                            السعر ثابت ويشمل الربط مع المركز الوطني حتى التشغيل الفعلي.
+                            الاستضافة والخادم المخصّص عليكم، وهذه تكلفة شهرية مستقلة.»
+                        </p>
+                    </div>
+                    <div class="space-y-2.5">
+                        <div class="flex items-start gap-2.5 bg-brand-white border border-brand-lightBeige rounded-lg p-3">
+                            <i class="fas fa-circle-check text-brand-ok text-xs mt-0.5"></i>
+                            <p class="text-[11px] text-brand-tealDark/85 leading-relaxed">اذكر دائمًا <strong>«غير شامل الضريبة»</strong> في نفس الجملة</p>
+                        </div>
+                        <div class="flex items-start gap-2.5 bg-brand-white border border-brand-lightBeige rounded-lg p-3">
+                            <i class="fas fa-circle-check text-brand-ok text-xs mt-0.5"></i>
+                            <p class="text-[11px] text-brand-tealDark/85 leading-relaxed">اذكر <strong>الخادم المخصّص</strong> قبل التعاقد لا بعده</p>
+                        </div>
+                        <div class="flex items-start gap-2.5 bg-brand-white border border-brand-lightBeige rounded-lg p-3">
+                            <i class="fas fa-circle-check text-brand-ok text-xs mt-0.5"></i>
+                            <p class="text-[11px] text-brand-tealDark/85 leading-relaxed">اعرض <strong>الخيارات الثلاثة</strong> ولو كنت متأكدًا من واحد</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- لا تفعل -->
+            <div class="bg-brand-white border-2 border-brand-alert/30 rounded-2xl p-6 md:p-7 shadow-sm space-y-4">
+                <h3 class="text-base flex items-center gap-3 text-brand-alert">
+                    <i class="fas fa-hand text-lg"></i> أربعة أشياء لا تفعلها أبدًا
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="bg-brand-alert/[0.05] rounded-lg p-3.5 space-y-1">
+                        <p class="text-xs font-bold text-brand-alert">لا تخصم من السعر</p>
+                        <p class="text-[11px] text-brand-tealDark/75 leading-relaxed">
+                            من يريد أقل، انزل به خيارًا كاملًا. الخصم على نفس النطاق يعني أن سعرك الأول كان مبالغًا فيه.
+                        </p>
+                    </div>
+                    <div class="bg-brand-alert/[0.05] rounded-lg p-3.5 space-y-1">
+                        <p class="text-xs font-bold text-brand-alert">لا تَعِد بتاريخ للاعتماد</p>
+                        <p class="text-[11px] text-brand-tealDark/75 leading-relaxed">
+                            رد المركز الوطني ليس بيدنا. عِد بجاهزية المنصة للرفع، لا بموافقة الجهة.
+                        </p>
+                    </div>
+                    <div class="bg-brand-alert/[0.05] rounded-lg p-3.5 space-y-1">
+                        <p class="text-xs font-bold text-brand-alert">لا تسعّر الخيار 1 قبل التدقيق</p>
+                        <p class="text-[11px] text-brand-tealDark/75 leading-relaxed">
+                            الربط على نظام غيرنا يحتاج فحصًا أولًا. بِع التدقيق بـ <span class="ltr-num">3,500</span> ر.س، ثم سعّر.
+                        </p>
+                    </div>
+                    <div class="bg-brand-alert/[0.05] rounded-lg p-3.5 space-y-1">
+                        <p class="text-xs font-bold text-brand-alert">لا تُظهر هذا المستند للعميل</p>
+                        <p class="text-[11px] text-brand-tealDark/75 leading-relaxed">
+                            العميل يستقبل عرض الخدمة والسعر فقط. الأوزان والهوامش داخلية.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- معجم -->
+            <div class="bg-brand-tealDark rounded-2xl p-6 md:p-7 space-y-4 relative overflow-hidden">
+                <div class="absolute -top-8 -left-6 text-brand-gold/[0.07] text-8xl pointer-events-none">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="relative z-10 space-y-4">
+                    <h3 class="text-base text-white flex items-center gap-2">
+                        <i class="fas fa-book text-brand-gold text-sm"></i> خمس كلمات ستسمعها — بالعربي المفهوم
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="bg-white/[0.07] border border-white/10 rounded-lg p-3.5 space-y-1">
+                            <p class="text-xs font-bold text-brand-goldLight">الرفع الوطني</p>
+                            <p class="text-[11px] text-white/70 leading-relaxed">
+                                إرسال نشاط كل متدرّب تلقائيًا للمركز الوطني للتعليم الإلكتروني. بدونه لا اعتماد.
+                            </p>
+                        </div>
+                        <div class="bg-white/[0.07] border border-white/10 rounded-lg p-3.5 space-y-1">
+                            <p class="text-xs font-bold text-brand-goldLight">xAPI</p>
+                            <p class="text-[11px] text-white/70 leading-relaxed">
+                                الصيغة التقنية التي يشترطها المركز الوطني للسجلات. لا تشرحها — قل «الصيغة المعتمدة».
+                            </p>
+                        </div>
+                        <div class="bg-white/[0.07] border border-white/10 rounded-lg p-3.5 space-y-1">
+                            <p class="text-xs font-bold text-brand-goldLight">الوزن</p>
+                            <p class="text-[11px] text-white/70 leading-relaxed">
+                                رقم داخلي يوضّح حجم كل جزء من المنصة، من <span class="ltr-num">100</span>.
+                                <strong class="text-white">لست مضطرًا لاستخدامه — الأسعار محسوبة لك مسبقًا.</strong>
+                            </p>
+                        </div>
+                        <div class="bg-white/[0.07] border border-white/10 rounded-lg p-3.5 space-y-1">
+                            <p class="text-xs font-bold text-brand-goldLight">T</p>
+                            <p class="text-[11px] text-white/70 leading-relaxed">
+                                سعر المنصة الكاملة (<span class="ltr-num">95,000</span> ووردبريس / <span class="ltr-num">190,000</span> أصلي).
+                                منه تُشتق أسعار باقي الخيارات.
+                            </p>
+                        </div>
+                        <div class="md:col-span-2 bg-white/[0.07] border border-white/10 rounded-lg p-3.5 space-y-1">
+                            <p class="text-xs font-bold text-brand-goldLight">الخادم المخصّص / العنوان الثابت</p>
+                            <p class="text-[11px] text-white/70 leading-relaxed">
+                                المركز الوطني يسمح بالإرسال من عنوان خادم واحد معروف. الاستضافة المشتركة يتغيّر عنوانها،
+                                فيتوقّف الإرسال فجأة. لهذا نطلب خادمًا مخصّصًا — وهو تكلفة شهرية على العميل، اذكرها مبكرًا.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- فهرس -->
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 no-print">
+                <h4 class="text-sm flex items-center gap-2">
+                    <i class="fas fa-list text-brand-gold text-xs"></i> باقي المستند — ارجع إليه عند الحاجة
+                </h4>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                    <a href="#options" class="bg-brand-teal border border-brand-lightBeige rounded-lg p-3 text-[11px] font-semibold hover:border-brand-gold/50 transition-colors block">تفصيل الخيارات الثلاثة</a>
+                    <a href="#pricing-sar" class="bg-brand-teal border border-brand-lightBeige rounded-lg p-3 text-[11px] font-semibold hover:border-brand-gold/50 transition-colors block">جدول الأسعار والإضافات</a>
+                    <a href="#calculator" class="bg-brand-teal border border-brand-lightBeige rounded-lg p-3 text-[11px] font-semibold hover:border-brand-gold/50 transition-colors block">حاسبة نطاق غير قياسي</a>
+                    <a href="#objections" class="bg-brand-teal border border-brand-lightBeige rounded-lg p-3 text-[11px] font-semibold hover:border-brand-gold/50 transition-colors block">الرد على الاعتراضات</a>
+                    <a href="#qualify" class="bg-brand-teal border border-brand-lightBeige rounded-lg p-3 text-[11px] font-semibold hover:border-brand-gold/50 transition-colors block">أسئلة التأهيل الكاملة</a>
+                    <a href="#recurring" class="bg-brand-teal border border-brand-lightBeige rounded-lg p-3 text-[11px] font-semibold hover:border-brand-gold/50 transition-colors block">الاشتراكات الشهرية</a>
+                    <a href="#reference" class="bg-brand-teal border border-brand-lightBeige rounded-lg p-3 text-[11px] font-semibold hover:border-brand-gold/50 transition-colors block">ماذا تقول عن مشروعنا السابق</a>
+                    <a href="#inventory" class="bg-brand-teal border border-brand-lightBeige rounded-lg p-3 text-[11px] font-semibold hover:border-brand-gold/50 transition-colors block text-brand-tealDark/55">جرد الوحدات (فني)</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ REFERENCE PROJECT NUMBERS ============ -->
+        <section class="bg-brand-white border border-brand-lightBeige rounded-2xl p-8 md:p-10 shadow-sm space-y-6">
+            <div class="flex items-center gap-4 border-b border-brand-lightBeige pb-5">
+                <div class="bg-brand-gold/10 p-3.5 rounded-xl border border-brand-gold/20 text-brand-goldDark">
+                    <i class="fas fa-cubes text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl">ما بُني فعلًا — المشروع المرجعي</h3>
+                    <p class="text-xs text-brand-tealDark/55 mt-1">أرقام حقيقية من نظام مُسلَّم. استخدمها لتبرير الحجم، واجعلها الأساس الذي تقيس عليه</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige">
+                    <p class="text-2xl font-bold seq-num text-brand-tealDark"><span class="ltr-num">218</span></p>
+                    <p class="text-[11px] text-brand-tealDark/60 mt-1">ملف PHP</p>
+                </div>
+                <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige">
+                    <p class="text-2xl font-bold seq-num text-brand-tealDark"><span class="ltr-num">~42,700</span></p>
+                    <p class="text-[11px] text-brand-tealDark/60 mt-1">سطر برمجي</p>
+                </div>
+                <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige">
+                    <p class="text-2xl font-bold seq-num text-brand-tealDark"><span class="ltr-num">18</span></p>
+                    <p class="text-[11px] text-brand-tealDark/60 mt-1">وحدة وظيفية</p>
+                </div>
+                <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige">
+                    <p class="text-2xl font-bold seq-num text-brand-tealDark"><span class="ltr-num">13</span></p>
+                    <p class="text-[11px] text-brand-tealDark/60 mt-1">جدول قاعدة بيانات مخصّص</p>
+                </div>
+                <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige">
+                    <p class="text-2xl font-bold seq-num text-brand-tealDark"><span class="ltr-num">61</span></p>
+                    <p class="text-[11px] text-brand-tealDark/60 mt-1">قالب صفحة</p>
+                </div>
+                <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige">
+                    <p class="text-2xl font-bold seq-num text-brand-ok"><span class="ltr-num">489</span></p>
+                    <p class="text-[11px] text-brand-tealDark/60 mt-1">فحصًا آليًا + حزمة ترجمة منفصلة</p>
+                </div>
+                <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige">
+                    <p class="text-2xl font-bold seq-num text-brand-tealDark"><span class="ltr-num">~1,100</span></p>
+                    <p class="text-[11px] text-brand-tealDark/60 mt-1">نص مترجم بصيغ الجمع الستّ</p>
+                </div>
+                <div class="bg-brand-tealDark rounded-xl p-4 border border-brand-tealDark">
+                    <p class="text-2xl font-bold seq-num text-brand-gold"><span class="ltr-num">0</span></p>
+                    <p class="text-[11px] text-white/70 mt-1">اعتمادية خارجية أو رخصة مدفوعة</p>
+                </div>
+            </div>
+
+            <div class="bg-brand-teal border border-brand-lightBeige rounded-xl p-5">
+                <p class="text-xs text-brand-tealDark/85 leading-loose">
+                    <i class="fas fa-star text-brand-gold ml-1"></i>
+                    <strong>«صفر اعتماديات» ميزة بيعية لا قيد.</strong> لا يوجد في النظام مكوّن يمكن لطرف ثالث
+                    إيقافه أو رفع سعره أو التخلي عنه. يعمل على ووردبريس وPHP فقط — بلا Composer ولا npm
+                    ولا خطوة بناء. قلها بهذه الصياغة حرفيًا؛ العميل التقني يفهم قيمتها فورًا.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ THE THREE OPTIONS ============ -->
+        <section class="space-y-8 pt-2" id="options">
+            <div class="text-center">
+                <span class="bg-brand-tealDark text-brand-goldLight text-[11px] px-4 py-1.5 rounded-full font-semibold inline-block mb-3">
+                    الجزء الأهم في الحقيبة
+                </span>
+                <h2 class="text-2xl mb-2">الخيارات الثلاثة الجاهزة للطرح</h2>
+                <p class="text-sm text-brand-tealDark/60 max-w-3xl mx-auto leading-relaxed">
+                    اطرح الثلاثة معًا دائمًا. وجود خيار أعلى وخيار أدنى يجعل الخيار الأوسط قرارًا
+                    بدل أن يكون سعرًا يُقارَن بالصفر
+                </p>
+                <div class="max-w-2xl mx-auto bg-brand-white border border-brand-lightBeige rounded-xl p-4 mt-4 text-right">
+                    <p class="text-[11px] text-brand-tealDark/75 leading-relaxed">
+                        <i class="fas fa-circle-question text-brand-gold ml-1"></i>
+                        <strong>«وزن النطاق» المذكور في البطاقات؟</strong> رقم داخلي يقيس حجم كل خيار من
+                        <span class="ltr-num">100</span> (المنصة الكاملة). وجوده هنا للشرح فقط —
+                        <strong>السعر تحته محسوب مسبقًا، فاستخدم السعر مباشرة.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                <!-- الخيار 1 -->
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-7 shadow-sm space-y-5 card-hover flex flex-col">
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between">
+                            <span class="seq-num text-4xl font-extrabold text-brand-lightBeige">٠١</span>
+                            <span class="pill bg-brand-warn/10 text-brand-warn border border-brand-warn/20">الأسرع دخولًا</span>
+                        </div>
+                        <h3 class="text-base leading-relaxed">ربط الرفع الوطني على نظام قائم</h3>
+                        <p class="text-xs text-brand-tealDark/65 leading-loose">
+                            العميل لديه موقع ولوحة تحكم تعملان بالفعل. لا نبني منصة — نضيف طبقة الرفع
+                            الوطني إلى ما هو موجود ونأخذه حتى الإنتاج.
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige space-y-3">
+                        <div class="flex items-baseline justify-between">
+                            <p class="text-[11px] text-brand-tealDark/60">وزن النطاق</p>
+                            <p class="text-lg font-bold seq-num text-brand-tealDark"><span class="ltr-num">26</span>
+                                <span class="text-[11px] font-normal text-brand-tealDark/45">من 100</span></p>
+                        </div>
+                        <div class="border-t border-brand-lightBeige pt-3 space-y-2.5">
+                            <div>
+                                <p class="text-[10.5px] text-brand-tealDark/55 mb-0.5 flex items-center gap-1.5">
+                                    <i class="fab fa-wordpress text-brand-goldDark text-[10px]"></i> مسار ووردبريس
+                                </p>
+                                <p class="text-2xl font-bold seq-num text-brand-tealDark">
+                                    <span class="ltr-num">25,000</span>
+                                    <span class="text-[11px] font-normal text-brand-tealDark/50">ر.س</span>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-[10.5px] text-brand-tealDark/55 mb-0.5 flex items-center gap-1.5">
+                                    <i class="fas fa-layer-group text-brand-goldDark text-[10px]"></i> مسار التطوير الأصلي
+                                </p>
+                                <p class="text-2xl font-bold seq-num text-brand-tealDark">
+                                    <span class="ltr-num">50,000</span>
+                                    <span class="text-[11px] font-normal text-brand-tealDark/50">ر.س</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="text-[11px] text-brand-tealDark/85 space-y-2 leading-relaxed custom-bullets flex-1">
+                        <li>تدقيق النظام القائم ونموذج بياناته</li>
+                        <li>طبقة ربط بين أحداث نظامه ومولّد العبارات</li>
+                        <li>الرفع الوطني بأنواع الأحداث الثمانية</li>
+                        <li>معالجة هوية المتدرب ومعرّف المقرر</li>
+                        <li>طابور إعادة المحاولة وشاشة المراقبة</li>
+                        <li>رحلة التحقق والانتقال للإنتاج</li>
+                    </ul>
+
+                    <div class="bg-brand-alert/[0.06] border border-brand-alert/20 rounded-xl p-3">
+                        <p class="text-[10.5px] text-brand-tealDark/80 leading-relaxed">
+                            <i class="fas fa-triangle-exclamation text-brand-alert text-[10px] ml-1"></i>
+                            <strong>الأعلى مخاطرة لكل ريال.</strong> تعتمد على شيفرة كتبها غيرك.
+                            لا تُسعّره قبل رؤية النظام.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- الخيار 2 -->
+                <div class="bg-brand-white border-2 border-brand-gold/45 rounded-2xl p-7 shadow-sm space-y-5 flex flex-col relative overflow-hidden">
+                    <div class="absolute top-0 left-0 bg-brand-gold text-brand-tealDark text-[10px] font-bold px-4 py-1 rounded-bl-xl">
+                        الأكثر ملاءمة عادةً
+                    </div>
+                    <div class="space-y-3 pt-3">
+                        <div class="flex items-start justify-between">
+                            <span class="seq-num text-4xl font-extrabold text-brand-gold/30">٠٢</span>
+                        </div>
+                        <h3 class="text-base leading-relaxed">الموقع قائم — نبني لوحة التحكم والتكامل</h3>
+                        <p class="text-xs text-brand-tealDark/65 leading-loose">
+                            العميل لديه موقع تعريفي يعمل ويرضى عنه. نبني عليه منصة التدريب كاملة:
+                            الأساس والتدريب والرفع الوطني — دون تجارة إلكترونية أو مراسلات.
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-tealDark rounded-xl p-4 space-y-3">
+                        <div class="flex items-baseline justify-between">
+                            <p class="text-[11px] text-white/60">وزن النطاق</p>
+                            <p class="text-lg font-bold seq-num text-brand-gold"><span class="ltr-num">79</span>
+                                <span class="text-[11px] font-normal text-white/45">من 100</span></p>
+                        </div>
+                        <div class="border-t border-white/10 pt-3 space-y-2.5">
+                            <div>
+                                <p class="text-[10.5px] text-white/55 mb-0.5 flex items-center gap-1.5">
+                                    <i class="fab fa-wordpress text-brand-goldLight text-[10px]"></i> مسار ووردبريس
+                                </p>
+                                <p class="text-2xl font-bold seq-num text-brand-gold">
+                                    <span class="ltr-num">75,000</span>
+                                    <span class="text-[11px] font-normal text-white/50">ر.س</span>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-[10.5px] text-white/55 mb-0.5 flex items-center gap-1.5">
+                                    <i class="fas fa-layer-group text-brand-goldLight text-[10px]"></i> مسار التطوير الأصلي
+                                </p>
+                                <p class="text-2xl font-bold seq-num text-brand-gold">
+                                    <span class="ltr-num">150,000</span>
+                                    <span class="text-[11px] font-normal text-white/50">ر.س</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-white/40 pt-1 border-t border-white/10">الأساس <span class="ltr-num">29</span> + التدريب <span class="ltr-num">38</span> + الامتثال <span class="ltr-num">12</span></p>
+                    </div>
+
+                    <ul class="text-[11px] text-brand-tealDark/85 space-y-2 leading-relaxed custom-bullets flex-1">
+                        <li>الأساس كاملًا: حسابات، أدوار، ثلاث لوحات، عربية RTL</li>
+                        <li>التدريب كاملًا: مقررات، مناهج، فيديو، اختبارات، شهادات</li>
+                        <li>الامتثال كاملًا: الرفع الوطني والتحقق والإنتاج</li>
+                        <li class="text-brand-tealDark/50">التجارة (<span class="ltr-num">+11</span>) والتواصل (<span class="ltr-num">+10</span>) إضافات اختيارية</li>
+                    </ul>
+
+                    <div class="bg-brand-ok/[0.07] border border-brand-ok/25 rounded-xl p-3">
+                        <p class="text-[10.5px] text-brand-tealDark/80 leading-relaxed">
+                            <i class="fas fa-circle-check text-brand-ok text-[10px] ml-1"></i>
+                            <strong>أوضح خيار للدفاع عنه.</strong> نبني نحن كل ما نعتمد عليه —
+                            فلا مفاجآت من شيفرة غيرنا.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- الخيار 3 -->
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-7 shadow-sm space-y-5 card-hover flex flex-col">
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between">
+                            <span class="seq-num text-4xl font-extrabold text-brand-lightBeige">٠٣</span>
+                            <span class="pill bg-brand-ok/10 text-brand-ok border border-brand-ok/20">الأعلى قيمة</span>
+                        </div>
+                        <h3 class="text-base leading-relaxed">الباقة الكاملة</h3>
+                        <p class="text-xs text-brand-tealDark/65 leading-loose">
+                            منصة كاملة من الصفر: الأساس والتدريب والتجارة والتواصل والامتثال.
+                            هذا هو النظام المرجعي بأكمله.
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige space-y-3">
+                        <div class="flex items-baseline justify-between">
+                            <p class="text-[11px] text-brand-tealDark/60">وزن النطاق</p>
+                            <p class="text-lg font-bold seq-num text-brand-tealDark"><span class="ltr-num">100</span>
+                                <span class="text-[11px] font-normal text-brand-tealDark/45">من 100</span></p>
+                        </div>
+                        <div class="border-t border-brand-lightBeige pt-3 space-y-2.5">
+                            <div>
+                                <p class="text-[10.5px] text-brand-tealDark/55 mb-0.5 flex items-center gap-1.5">
+                                    <i class="fab fa-wordpress text-brand-goldDark text-[10px]"></i> مسار ووردبريس
+                                </p>
+                                <p class="text-2xl font-bold seq-num text-brand-tealDark">
+                                    <span class="ltr-num">95,000</span>
+                                    <span class="text-[11px] font-normal text-brand-tealDark/50">ر.س</span>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-[10.5px] text-brand-tealDark/55 mb-0.5 flex items-center gap-1.5">
+                                    <i class="fas fa-layer-group text-brand-goldDark text-[10px]"></i> مسار التطوير الأصلي
+                                </p>
+                                <p class="text-2xl font-bold seq-num text-brand-tealDark">
+                                    <span class="ltr-num">190,000</span>
+                                    <span class="text-[11px] font-normal text-brand-tealDark/50">ر.س</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="text-[11px] text-brand-tealDark/85 space-y-2 leading-relaxed custom-bullets flex-1">
+                        <li>الأساس <span class="ltr-num">29</span> — حسابات وأدوار ولوحات وعربية</li>
+                        <li>التدريب <span class="ltr-num">38</span> — مقررات واختبارات وشهادات وحضور</li>
+                        <li>التجارة <span class="ltr-num">11</span> — بيع ودفع وتسجيل واسترجاع</li>
+                        <li>التواصل <span class="ltr-num">10</span> — إشعارات ومراسلات وطلبات مدربين</li>
+                        <li>الامتثال <span class="ltr-num">12</span> — الرفع الوطني حتى الإنتاج</li>
+                    </ul>
+
+                    <div class="bg-brand-gold/[0.08] border border-brand-gold/25 rounded-xl p-3">
+                        <p class="text-[10.5px] text-brand-tealDark/80 leading-relaxed">
+                            <i class="fas fa-arrow-trend-up text-brand-goldDark text-[10px] ml-1"></i>
+                            <strong>أعلى هامش وأسهل تسليم.</strong> نطاق معروف بالكامل ومُختبَر —
+                            وهو الأقل مخاطرة رغم أنه الأكبر رقمًا.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-brand-white border-2 border-brand-gold/30 rounded-2xl p-6 md:p-7 shadow-sm space-y-3">
+                <h4 class="text-sm text-brand-goldDark flex items-center gap-2">
+                    <i class="fas fa-lightbulb"></i> ملاحظة تسعيرية مهمة يخطئ فيها الجميع
+                </h4>
+                <p class="text-xs text-brand-tealDark/85 leading-loose">
+                    الخيار الأول <strong>أرخص بالمبلغ، لا بالمدة</strong>. مدّة الانتظار في مراسلات التحقق
+                    مع المركز الوطني ثابتة تقريبًا في الخيارات الثلاثة — لا تنكمش لأن النطاق أصغر.
+                    لذلك لا تَعِد بجدول زمني نسبته <span class="ltr-num">26%</span> من المشروع الكامل.
+                    القاعدة العملية: <strong>البناء يتقلّص، والتحقق لا يتقلّص</strong>.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ SAR PRICE MATRIX + BUILD TRACK ============ -->
+        <section class="space-y-8 pt-2" id="pricing-sar">
+            <div class="text-center">
+                <span class="bg-brand-gold/10 text-brand-goldDark border border-brand-gold/20 text-[11px] px-4 py-1.5 rounded-full font-semibold inline-block mb-3">
+                    الأسعار المعتمدة — ريال سعودي
+                </span>
+                <h2 class="text-2xl mb-2">جدول الأسعار: الخيار × المسار التقني</h2>
+                <p class="text-sm text-brand-tealDark/60 max-w-3xl mx-auto leading-relaxed">
+                    أسعار ثابتة غير قابلة للتفاوض. كل خيار له سعران حسب المسار التقني.
+                    ما يزيد على النطاق يُضاف كبند مستقل من جدول الإضافات — لا بمساومة على السعر الأساسي
+                </p>
+            </div>
+
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-4 md:p-6 shadow-sm overflow-x-auto">
+                <table class="w-full text-right text-xs min-w-[720px]">
+                    <thead>
+                        <tr class="bg-brand-tealDark text-brand-white">
+                            <th class="p-3 rounded-tr-xl font-semibold w-56">الخيار</th>
+                            <th class="p-3 font-semibold w-20">الوزن</th>
+                            <th class="p-3 font-semibold">مسار ووردبريس <span class="block text-[10px] font-normal text-white/50">ر.س</span></th>
+                            <th class="p-3 rounded-tl-xl font-semibold">مسار التطوير الأصلي <span class="block text-[10px] font-normal text-white/50">ر.س</span></th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-brand-tealDark/90">
+                        <tr class="border-b border-brand-lightBeige">
+                            <td class="p-3">
+                                <p class="font-semibold">الخيار 1 — ربط الرفع الوطني</p>
+                                <p class="text-[10.5px] text-brand-tealDark/55 mt-0.5">على موقع ولوحة قائمين</p>
+                            </td>
+                            <td class="p-3 font-bold"><span class="ltr-num">26</span></td>
+                            <td class="p-3 font-bold text-lg"><span class="ltr-num">25,000</span></td>
+                            <td class="p-3 font-bold text-lg"><span class="ltr-num">50,000</span></td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-gold/[0.06]">
+                            <td class="p-3">
+                                <p class="font-semibold">الخيار 2 — لوحة تحكم + تكامل</p>
+                                <p class="text-[10.5px] text-brand-tealDark/55 mt-0.5">الموقع قائم · الأكثر طلبًا</p>
+                            </td>
+                            <td class="p-3 font-bold"><span class="ltr-num">79</span></td>
+                            <td class="p-3 font-bold text-lg"><span class="ltr-num">75,000</span></td>
+                            <td class="p-3 font-bold text-lg"><span class="ltr-num">150,000</span></td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige">
+                            <td class="p-3">
+                                <p class="font-semibold">الخيار 3 — الباقة الكاملة</p>
+                                <p class="text-[10.5px] text-brand-tealDark/55 mt-0.5">من الصفر بكل المجموعات</p>
+                            </td>
+                            <td class="p-3 font-bold"><span class="ltr-num">100</span></td>
+                            <td class="p-3 font-bold text-lg"><span class="ltr-num">95,000</span></td>
+                            <td class="p-3 font-bold text-lg"><span class="ltr-num">190,000</span></td>
+                        </tr>
+                        <tr class="bg-brand-teal">
+                            <td class="p-3 rounded-br-xl font-semibold">
+                                أساس الاحتساب <span class="ltr-num">T</span>
+                                <p class="text-[10.5px] text-brand-tealDark/55 mt-0.5 font-normal">سعر المشروع الكامل بوزن 100</p>
+                            </td>
+                            <td class="p-3 font-bold"><span class="ltr-num">100</span></td>
+                            <td class="p-3 font-bold text-brand-goldDark"><span class="ltr-num">T = 95,000</span></td>
+                            <td class="p-3 rounded-bl-xl font-bold text-brand-goldDark"><span class="ltr-num">T = 190,000</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2.5">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> السعر ثابت — والزيادة ببنود
+                    </h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        لا تفاوض على الرقم الأساسي. إن طلب العميل أكثر، أضف بندًا من جدول الإضافات أدناه.
+                        وإن أراد أقل، انزل خيارًا كاملًا — لا تقتطع من نطاق قائم.
+                    </p>
+                </div>
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2.5">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> الضريبة والعملة
+                    </h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        كل الأسعار بالريال السعودي و<strong>غير شاملة ضريبة القيمة المضافة</strong>.
+                        اذكر ذلك صراحةً في العرض حتى لا يُقرأ الرقم شاملًا.
+                    </p>
+                </div>
+                <div class="bg-brand-white border-2 border-brand-alert/30 rounded-2xl p-6 shadow-sm space-y-3">
+                    <h4 class="text-sm flex items-center gap-2.5 text-brand-alert">
+                        <span class="w-1.5 h-5 bg-brand-alert rounded-full block"></span> سياسة عدم التفاوض
+                    </h4>
+                    <p class="text-xs text-brand-tealDark/80 leading-loose">
+                        الأسعار ثابتة ولا يملك المندوب صلاحية الخصم. من يطلب سعرًا أقل يُنقل لخيار أدنى،
+                        لا لنفس الخيار بسعر أقل. أي استثناء يحتاج موافقة الإدارة كتابةً قبل الإرسال.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-4 md:p-6 shadow-sm space-y-3 overflow-x-auto">
+                <div class="flex items-center justify-between px-1">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <i class="fas fa-plus text-brand-gold text-xs"></i> جدول الإضافات — أسعار ثابتة تُضاف للخيار
+                    </h4>
+                    <span class="pill bg-brand-gold/15 text-brand-goldDark">تُذكر كبنود منفصلة في العرض</span>
+                </div>
+                <table class="w-full text-right text-xs min-w-[620px]">
+                    <thead>
+                        <tr class="bg-brand-tealDark text-brand-white">
+                            <th class="p-3 rounded-tr-xl font-semibold w-56">الإضافة</th>
+                            <th class="p-3 font-semibold w-20">الوزن</th>
+                            <th class="p-3 font-semibold">ووردبريس (ر.س)</th>
+                            <th class="p-3 rounded-tl-xl font-semibold">أصلي (ر.س)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-brand-tealDark/90">
+                        <tr class="border-b border-brand-lightBeige">
+                            <td class="p-3 font-semibold">مجموعة التجارة
+                                <span class="block text-[10.5px] text-brand-tealDark/55 font-normal mt-0.5">دفع، تسجيل تلقائي، إيصالات، استرجاع</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">11</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">11,000</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">22,000</span></td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                            <td class="p-3 font-semibold">مجموعة التواصل
+                                <span class="block text-[10.5px] text-brand-tealDark/55 font-normal mt-0.5">إشعارات، مراسلات، تذكير، طلبات مدربين</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">10</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">10,000</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">20,000</span></td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige">
+                            <td class="p-3 font-semibold">تصميم بصري مخصّص</td>
+                            <td class="p-3 font-bold"><span class="ltr-num">15</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">15,000</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">30,000</span></td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                            <td class="p-3 font-semibold">ترحيل بيانات قائمة
+                                <span class="block text-[10.5px] text-brand-alert font-normal mt-0.5">لا تلتزم بهذا السعر قبل رؤية البيانات</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">10</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">10,000</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">20,000</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold">تنفيذ عاجل</td>
+                            <td class="p-3 font-bold"><span class="ltr-num">25</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">25,000</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">50,000</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="bg-brand-teal rounded-lg p-3">
+                    <p class="text-[11px] text-brand-tealDark/85 leading-relaxed">
+                        <strong>مثال:</strong> الخيار 2 على ووردبريس مع تصميم مخصّص =
+                        <span class="ltr-num">75,000 + 15,000 = 90,000</span> ر.س، غير شامل الضريبة.
+                        اعرضه كبندين لا كرقم واحد — يجعل الزيادة مفهومة بدل أن تبدو مبالغة.
+                    </p>
+                </div>
+            </div>
+
+            <!-- رسوم التدقيق والبنود المتكررة -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-4">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <i class="fas fa-magnifying-glass-chart text-brand-gold text-xs"></i> بنود تُباع قبل المشروع
+                    </h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-xs min-w-[340px]">
+                            <thead>
+                                <tr class="text-brand-tealDark/50 border-b border-brand-lightBeige">
+                                    <th class="pb-2 font-medium">البند</th>
+                                    <th class="pb-2 font-medium">السعر (ر.س)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-brand-lightBeige/60">
+                                    <td class="py-2.5 font-semibold">تدقيق فني لنظام قائم (شرط الخيار 1)</td>
+                                    <td class="py-2.5 font-bold"><span class="ltr-num">3,500</span></td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige/60">
+                                    <td class="py-2.5 font-semibold">دراسة جاهزية الامتثال وتقرير الفجوة</td>
+                                    <td class="py-2.5 font-bold"><span class="ltr-num">5,000</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 font-semibold">ورشة تحديد المتطلبات وإجراءات العمل</td>
+                                    <td class="py-2.5 font-bold"><span class="ltr-num">2,500</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bg-brand-teal rounded-lg p-3">
+                        <p class="text-[11px] text-brand-tealDark/85 leading-relaxed">
+                            تُخصم قيمة التدقيق من سعر المشروع إن تعاقد العميل خلال <span class="ltr-num">30</span> يومًا —
+                            استخدم هذا كإغلاق: «التدقيق ليس تكلفة إضافية، بل دفعة أولى مشروطة».
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-4">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <i class="fas fa-repeat text-brand-gold text-xs"></i> الخدمات المتكررة — شهريًا
+                    </h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-xs min-w-[340px]">
+                            <thead>
+                                <tr class="text-brand-tealDark/50 border-b border-brand-lightBeige">
+                                    <th class="pb-2 font-medium">الخدمة</th>
+                                    <th class="pb-2 font-medium">السعر (ر.س / شهر)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-brand-lightBeige/60 bg-brand-gold/[0.05]">
+                                    <td class="py-2.5 font-semibold">مراقبة الامتثال</td>
+                                    <td class="py-2.5 font-bold"><span class="ltr-num">900</span></td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige/60">
+                                    <td class="py-2.5 font-semibold">الاستضافة المُدارة (خادم مخصّص)</td>
+                                    <td class="py-2.5 font-bold"><span class="ltr-num">750</span></td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige/60">
+                                    <td class="py-2.5 font-semibold">صيانة المنصة</td>
+                                    <td class="py-2.5 font-bold"><span class="ltr-num">1,200</span></td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige/60">
+                                    <td class="py-2.5 font-semibold">عمليات المحتوى</td>
+                                    <td class="py-2.5 font-bold"><span class="ltr-num">1,800</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 font-semibold">باقة تطوير شهرية</td>
+                                    <td class="py-2.5 font-bold"><span class="ltr-num">3,000</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bg-brand-ok/[0.07] border border-brand-ok/25 rounded-lg p-3">
+                        <p class="text-[11px] text-brand-tealDark/85 leading-relaxed">
+                            باقة «مراقبة + استضافة مُدارة + صيانة» معًا تُطرح بـ
+                            <span class="ltr-num font-bold">2,500</span> ر.س شهريًا بدل <span class="ltr-num">2,850</span> —
+                            وهي أسهل بكثير في البيع من ثلاثة بنود منفصلة، وتربط العميل بك سنويًا.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- جدول الدفعات -->
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 md:p-7 shadow-sm space-y-4">
+                <h4 class="text-sm flex items-center gap-2">
+                    <i class="fas fa-money-check-dollar text-brand-gold text-xs"></i> جدول الدفعات القياسي
+                </h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige">
+                        <p class="text-xl font-bold seq-num text-brand-tealDark"><span class="ltr-num">30%</span></p>
+                        <p class="text-[11px] text-brand-tealDark/65 mt-1">عند التوقيع — قبل بدء أي عمل</p>
+                    </div>
+                    <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige">
+                        <p class="text-xl font-bold seq-num text-brand-tealDark"><span class="ltr-num">30%</span></p>
+                        <p class="text-[11px] text-brand-tealDark/65 mt-1">تسليم مرحلة التدريب عاملة</p>
+                    </div>
+                    <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige">
+                        <p class="text-xl font-bold seq-num text-brand-tealDark"><span class="ltr-num">25%</span></p>
+                        <p class="text-[11px] text-brand-tealDark/65 mt-1">قبل بدء مرحلة الامتثال</p>
+                    </div>
+                    <div class="bg-brand-tealDark rounded-xl p-4">
+                        <p class="text-xl font-bold seq-num text-brand-gold"><span class="ltr-num">15%</span></p>
+                        <p class="text-[11px] text-white/70 mt-1">عند الانتقال للإنتاج والتسليم</p>
+                    </div>
+                </div>
+                <div class="bg-brand-warn/[0.08] border border-brand-warn/25 rounded-lg p-3.5">
+                    <p class="text-[11px] text-brand-tealDark/85 leading-loose">
+                        <i class="fas fa-triangle-exclamation text-brand-warn ml-1"></i>
+                        <strong>لا تربط الدفعة الأخيرة باعتماد المركز الوطني.</strong> اربطها بجاهزية المنصة
+                        للرفع وتسليم رحلة التحقق. موعد رد الجهة الوطنية خارج سيطرتنا، وربط مستحقاتك به
+                        يعني تعليق آخر دفعة لأجل غير مسمّى.
+                    </p>
+                </div>
+            </div>
+
+            <!-- الرد على طلب الخصم -->
+            <div class="bg-brand-tealDark rounded-2xl p-6 md:p-7 space-y-4 relative overflow-hidden">
+                <div class="absolute -top-8 -left-6 text-brand-gold/[0.07] text-8xl pointer-events-none">
+                    <i class="fas fa-hand"></i>
+                </div>
+                <div class="relative z-10 space-y-4">
+                    <h4 class="text-base text-white">حين يطلب العميل خصمًا</h4>
+                    <p class="text-xs text-white/70 leading-loose">
+                        السعر ثابت لأن النطاق ثابت. الخصم على نفس النطاق يعني أن السعر الأول كان مبالغًا فيه —
+                        وهذا أسوأ ما يمكن أن يستنتجه العميل عنك. بدلًا من الخصم، استخدم أحد هذه الثلاثة:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="bg-white/[0.07] border border-white/10 rounded-xl p-4 space-y-1.5">
+                            <p class="text-xs font-bold text-brand-goldLight">انزل خيارًا كاملًا</p>
+                            <p class="text-[11px] text-white/65 leading-relaxed">
+                                «الخيار الثالث بـ <span class="ltr-num">95,000</span>. إن كانت الميزانية أقل،
+                                الخيار الثاني بـ <span class="ltr-num">75,000</span> — بلا تجارة إلكترونية.»
+                            </p>
+                        </div>
+                        <div class="bg-white/[0.07] border border-white/10 rounded-xl p-4 space-y-1.5">
+                            <p class="text-xs font-bold text-brand-goldLight">أجّل بندًا للمرحلة الثانية</p>
+                            <p class="text-[11px] text-white/65 leading-relaxed">
+                                نفس السعر، لكن مجموعة التجارة تُضاف بعد ستة أشهر كبند مستقل.
+                                يخفّض الدفعة الأولى بلا مساس بالسعر.
+                            </p>
+                        </div>
+                        <div class="bg-white/[0.07] border border-white/10 rounded-xl p-4 space-y-1.5">
+                            <p class="text-xs font-bold text-brand-goldLight">وسّع جدول الدفعات</p>
+                            <p class="text-[11px] text-white/65 leading-relaxed">
+                                نفس المبلغ على دفعات أكثر. مشكلة العميل غالبًا تدفّق نقدي لا سعر —
+                                اسأله أيّهما قبل أن تفترض.
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-white/45 leading-relaxed pt-1 border-t border-white/10">
+                        الاستثناء الوحيد المقبول: الدفع الكامل مقدمًا مقابل خصم <span class="ltr-num">5%</span> —
+                        وبموافقة الإدارة فقط.
+                    </p>
+                </div>
+            </div>
+
+            <!-- المسار التقني: كيف تختار -->
+            <div class="space-y-5 pt-4">
+                <div class="text-center">
+                    <h3 class="text-lg mb-1.5">المسار التقني — ووردبريس أم تطوير أصلي؟</h3>
+                    <p class="text-xs text-brand-tealDark/60 max-w-2xl mx-auto leading-relaxed">
+                        لا تترك العميل يختار وحده. اسأل أسئلة الترشيح أدناه، ثم أوصِ بمسار واحد وادعمه بسبب
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <div class="bg-brand-white border-2 border-brand-gold/40 rounded-2xl p-6 shadow-sm space-y-4">
+                        <div class="flex items-center gap-3 border-b border-brand-lightBeige pb-4">
+                            <div class="bg-brand-gold/10 p-3 rounded-xl border border-brand-gold/20 text-brand-goldDark">
+                                <i class="fab fa-wordpress text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm">مسار ووردبريس</h4>
+                                <p class="text-[11px] text-brand-tealDark/55">التوصية الافتراضية · <span class="ltr-num">T = 95,000</span> ر.س</p>
+                            </div>
+                        </div>
+                        <p class="text-[11px] font-bold text-brand-ok">أوصِ به إذا</p>
+                        <ul class="text-[11px] text-brand-tealDark/85 space-y-1.5 leading-relaxed custom-bullets">
+                            <li>عدد المتدربين المتوقع في السنة الأولى أقل من بضعة آلاف</li>
+                            <li>إجراءات العمل معتادة: مقررات، اختبارات، شهادات، تسجيل</li>
+                            <li>الميزانية أو المدة عامل حاسم في القرار</li>
+                            <li>فريق العميل غير تقني ويحتاج واجهة إدارة مألوفة</li>
+                            <li>لا يوجد شرط تعاقدي يستبعد المنصات المضيفة</li>
+                        </ul>
+                        <div class="bg-brand-teal rounded-lg p-3">
+                            <p class="text-[10.5px] text-brand-tealDark/85 leading-relaxed">
+                                <strong>ميزة بيعية حاسمة:</strong> طبقة الرفع الوطني بُنيت واختُبرت وعبرت التحقق
+                                على هذا المسار فعليًا. أي مسار آخر يعني إعادة بناء تلك الطبقة — وهو ما تدفع ثمنه أنت أو العميل.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-4">
+                        <div class="flex items-center gap-3 border-b border-brand-lightBeige pb-4">
+                            <div class="bg-brand-tealDark p-3 rounded-xl text-brand-gold">
+                                <i class="fas fa-layer-group text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm">مسار التطوير الأصلي</h4>
+                                <p class="text-[11px] text-brand-tealDark/55">بسبب حقيقي فقط · <span class="ltr-num">T = 190,000</span> ر.س</p>
+                            </div>
+                        </div>
+                        <p class="text-[11px] font-bold text-brand-ok">أوصِ به إذا</p>
+                        <ul class="text-[11px] text-brand-tealDark/85 space-y-1.5 leading-relaxed custom-bullets">
+                            <li>كراسة الشروط أو سياسة الجهة تستبعد ووردبريس صراحةً</li>
+                            <li>عشرات الآلاف من المتدربين أو ذروات تسجيل ضخمة</li>
+                            <li>تعدّد كيانات أو فروع على منصة واحدة بعزل بيانات</li>
+                            <li>خطة مؤكّدة لتطبيق جوال أصلي أو تكاملات واسعة مع أنظمة أخرى</li>
+                            <li>إجراءات عمل غير نمطية لا تُمثَّل إلا بنموذج بيانات خاص</li>
+                        </ul>
+                        <div class="bg-brand-alert/[0.06] border border-brand-alert/20 rounded-lg p-3">
+                            <p class="text-[10.5px] text-brand-tealDark/85 leading-relaxed">
+                                <strong>لا تبعه لمجرد أن الرقم أكبر.</strong> عميل يدفع الضعف مقابل قدرات لن
+                                يستخدمها سيشعر لاحقًا أنه دُفع لقرار خاطئ — والمشاريع المرجعية أثمن من فرق الهامش.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-tealDark rounded-2xl p-6 md:p-7 space-y-4 relative overflow-hidden">
+                    <div class="absolute -top-8 -left-6 text-brand-gold/[0.07] text-8xl pointer-events-none">
+                        <i class="fas fa-circle-question"></i>
+                    </div>
+                    <div class="relative z-10 space-y-3">
+                        <h4 class="text-base text-white">أربعة أسئلة تحسم المسار في دقيقتين</h4>
+                        <ol class="text-xs text-white/80 space-y-2.5 leading-relaxed list-decimal pr-5">
+                            <li>هل توجد كراسة شروط أو سياسة تقنية تحدّد لغة أو إطار عمل بعينه؟
+                                <span class="block text-[10.5px] text-brand-goldLight mt-0.5">نعم ← أصلي فورًا، وارفع الأمر للفريق الفني</span>
+                            </li>
+                            <li>كم متدربًا متزامنًا في أعلى ذروة متوقعة؟
+                                <span class="block text-[10.5px] text-brand-goldLight mt-0.5">أقل من بضعة آلاف ← ووردبريس كافٍ تمامًا</span>
+                            </li>
+                            <li>هل هناك خطة مؤكّدة ومموّلة لتطبيق جوال؟
+                                <span class="block text-[10.5px] text-brand-goldLight mt-0.5">«ربما لاحقًا» ليست خطة — لا تُسعّرها</span>
+                            </li>
+                            <li>هل ستُدار عدة كيانات أو فروع مستقلة على نفس المنصة؟
+                                <span class="block text-[10.5px] text-brand-goldLight mt-0.5">نعم ← أصلي غالبًا</span>
+                            </li>
+                        </ol>
+                        <p class="text-[11px] text-white/50 leading-relaxed pt-1 border-t border-white/10">
+                            إن كانت الإجابات كلها «لا»، فالتوصية هي ووردبريس — وقُلها بثقة.
+                            الترشيح المدروس يبني ثقة أكثر مما يبنيه العرض الأغلى.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ OPTION DETAIL BREAKDOWNS ============ -->
+        <section class="space-y-8 pt-2">
+            <div class="text-center">
+                <h2 class="text-2xl mb-2">تفصيل كل خيار — ماذا يشمل وماذا لا يشمل</h2>
+                <p class="text-sm text-brand-tealDark/60">افتح الخيار الذي تناقشه مع العميل الآن — واقرأ قائمة «ما لا يشمله» قبل الاجتماع</p>
+            </div>
+
+            <!-- تفصيل الخيار 1 -->
+            <details class="bg-brand-white border border-brand-lightBeige rounded-2xl shadow-sm overflow-hidden" open>
+                <summary class="p-6 flex items-center justify-between gap-4 hover:bg-brand-teal/50 transition-colors">
+                    <div class="flex items-center gap-4">
+                        <span class="seq-num text-2xl font-extrabold text-brand-lightBeige">٠١</span>
+                        <div class="text-right">
+                            <h3 class="text-base">ربط الرفع الوطني على نظام قائم</h3>
+                            <p class="text-[11px] text-brand-tealDark/55 mt-0.5">وزن <span class="ltr-num">26</span> · الأعلى مخاطرة · لا تُسعّره قبل الفحص</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-down chev text-brand-gold text-sm"></i>
+                </summary>
+
+                <div class="px-6 pb-6 space-y-5 border-t border-brand-lightBeige pt-5">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-xs min-w-[560px]">
+                            <thead>
+                                <tr class="bg-brand-tealDark text-brand-white">
+                                    <th class="p-3 rounded-tr-xl font-semibold">البند</th>
+                                    <th class="p-3 font-semibold w-20">الوزن</th>
+                                    <th class="p-3 rounded-tl-xl font-semibold">ما يشمله</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-brand-tealDark/90">
+                                <tr class="border-b border-brand-lightBeige">
+                                    <td class="p-3 font-semibold">تدقيق النظام القائم</td>
+                                    <td class="p-3 font-bold text-brand-goldDark"><span class="ltr-num">5</span></td>
+                                    <td class="p-3">فحص نموذج البيانات، تحديد نقاط التقاط الأحداث، تقييم الاستضافة والوصول</td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                                    <td class="p-3 font-semibold">طبقة الربط (Adapter)</td>
+                                    <td class="p-3 font-bold text-brand-goldDark"><span class="ltr-num">7</span></td>
+                                    <td class="p-3">ربط أحداث نظامه بمولّد العبارات — البند الأكثر تباينًا بين مشروع وآخر</td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige">
+                                    <td class="p-3 font-semibold">طبقة الرفع الوطني</td>
+                                    <td class="p-3 font-bold text-brand-goldDark"><span class="ltr-num">8</span></td>
+                                    <td class="p-3">عبارات xAPI لثمانية أنواع أحداث، الطابور، إعادة المحاولة، شاشة الإدارة</td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                                    <td class="p-3 font-semibold">هوية المقرر والمتدرب</td>
+                                    <td class="p-3 font-bold text-brand-goldDark"><span class="ltr-num">2</span></td>
+                                    <td class="p-3">أكواد المقررات، معالجة رقم الهوية الوطنية، حل تعارض الهويات</td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige">
+                                    <td class="p-3 font-semibold">شاشة المراقبة والتشخيص</td>
+                                    <td class="p-3 font-bold text-brand-goldDark"><span class="ltr-num">2</span></td>
+                                    <td class="p-3">حالة الاتصال، سجل العبارات، فحص التهيئة الذاتي</td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                                    <td class="p-3 font-semibold">التحقق والانتقال للإنتاج</td>
+                                    <td class="p-3 font-bold text-brand-goldDark"><span class="ltr-num">2</span></td>
+                                    <td class="p-3">رحلة التحقق، التحقّق من الصحة، المراسلات، تبديل بيئة الإنتاج</td>
+                                </tr>
+                                <tr class="bg-brand-tealDark text-white">
+                                    <td class="p-3 rounded-br-xl font-bold">الإجمالي</td>
+                                    <td class="p-3 font-bold text-brand-gold"><span class="ltr-num">26</span></td>
+                                    <td class="p-3 rounded-bl-xl text-white/70">لا يشمل بناء أي جزء من منصة التدريب نفسها</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-brand-white border-2 border-brand-alert/30 rounded-xl p-5 space-y-3">
+                            <h4 class="text-sm text-brand-alert flex items-center gap-2">
+                                <i class="fas fa-key text-xs"></i> شروط الجدوى — تحقّق منها قبل أي رقم
+                            </h4>
+                            <ul class="text-[11px] text-brand-tealDark/85 space-y-2 leading-relaxed custom-bullets">
+                                <li>وصول كامل للشيفرة المصدرية وقاعدة البيانات للنظام القائم</li>
+                                <li>وجود نقاط ربط برمجية أو إمكانية إضافتها دون كسر النظام</li>
+                                <li>إمكانية إضافة حقل رقم الهوية الوطنية لملف المتدرب</li>
+                                <li>إمكانية الانتقال لخادم مخصّص بعنوان ثابت</li>
+                                <li>وجود من يتحمّل مسؤولية النظام القائم فنيًا عند ظهور مشكلة فيه</li>
+                            </ul>
+                            <div class="bg-brand-alert/[0.07] rounded-lg p-3">
+                                <p class="text-[10.5px] text-brand-tealDark/85 leading-relaxed">
+                                    <strong>إن كان النظام منصة مغلقة (SaaS) بلا وصول للشيفرة، فالخيار الأول غير ممكن أصلًا.</strong>
+                                    انتقل مباشرة للخيار الثاني أو الثالث — ولا تحاول الالتفاف على هذا.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-brand-white border border-brand-lightBeige rounded-xl p-5 space-y-3">
+                            <h4 class="text-sm flex items-center gap-2">
+                                <i class="fas fa-circle-minus text-brand-tealDark/50 text-xs"></i> ما لا يشمله هذا الخيار — اذكره كتابةً
+                            </h4>
+                            <ul class="text-[11px] text-brand-tealDark/85 space-y-2 leading-relaxed custom-bullets">
+                                <li>أي إصلاح أو تحسين في النظام القائم نفسه</li>
+                                <li>ترجمة أو تعريب واجهة النظام القائم</li>
+                                <li>ضمان استمرار عمل الربط بعد أي تحديث يجريه مزوّد النظام القائم</li>
+                                <li>تسجيل الجهة لدى المركز الوطني (إجراء العميل)</li>
+                                <li>الاستضافة والخادم المخصّص وتكاليفهما المتكررة</li>
+                            </ul>
+                            <div class="bg-brand-teal rounded-lg p-3">
+                                <p class="text-[10.5px] text-brand-tealDark/85 leading-relaxed">
+                                    <strong>بند تعاقدي موصى به:</strong> «يُعاد تقدير النطاق إذا اتضح بعد التدقيق
+                                    أن النظام القائم لا يوفّر نقاط الالتقاط اللازمة.» ضعه في العرض من البداية.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-teal border border-brand-lightBeige rounded-xl p-4">
+                        <p class="text-[11px] text-brand-tealDark/85 leading-loose">
+                            <i class="fas fa-comment-dots text-brand-gold ml-1"></i>
+                            <strong>جملة تُقال للعميل:</strong> «نبدأ بتدقيق فني قصير مدفوع على نظامك الحالي.
+                            مخرجه تقرير جدوى يحدّد إن كان الربط ممكنًا وبأي نطاق. إن اتضح أنه غير ممكن،
+                            تكون قد وفّرت على نفسك مشروعًا فاشلًا بكلفة التدقيق فقط.» — هذا يبيع التدقيق كبند مستقل.
+                        </p>
+                    </div>
+                </div>
+            </details>
+
+            <!-- تفصيل الخيار 2 -->
+            <details class="bg-brand-white border-2 border-brand-gold/35 rounded-2xl shadow-sm overflow-hidden">
+                <summary class="p-6 flex items-center justify-between gap-4 hover:bg-brand-teal/50 transition-colors">
+                    <div class="flex items-center gap-4">
+                        <span class="seq-num text-2xl font-extrabold text-brand-gold/35">٠٢</span>
+                        <div class="text-right">
+                            <h3 class="text-base">الموقع قائم — بناء لوحة التحكم والتكامل</h3>
+                            <p class="text-[11px] text-brand-tealDark/55 mt-0.5">وزن <span class="ltr-num">79</span> · الأكثر ملاءمة لأغلب مزوّدي التدريب</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-down chev text-brand-gold text-sm"></i>
+                </summary>
+
+                <div class="px-6 pb-6 space-y-5 border-t border-brand-lightBeige pt-5">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right text-xs min-w-[560px]">
+                            <thead>
+                                <tr class="bg-brand-tealDark text-brand-white">
+                                    <th class="p-3 rounded-tr-xl font-semibold">المجموعة</th>
+                                    <th class="p-3 font-semibold w-20">الوزن</th>
+                                    <th class="p-3 rounded-tl-xl font-semibold">الحالة في هذا الخيار</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-brand-tealDark/90">
+                                <tr class="border-b border-brand-lightBeige">
+                                    <td class="p-3 font-semibold">الأساس</td>
+                                    <td class="p-3 font-bold text-brand-goldDark"><span class="ltr-num">29</span></td>
+                                    <td class="p-3"><span class="pill bg-brand-alert/10 text-brand-alert">إلزامي دائمًا</span> لا يعمل شيء بدونه مهما صغر النطاق</td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                                    <td class="p-3 font-semibold">التدريب</td>
+                                    <td class="p-3 font-bold text-brand-goldDark"><span class="ltr-num">38</span></td>
+                                    <td class="p-3">مشمول كاملًا — يمكن تقليصه بإسقاط الحضور والتقييمات إن كان التدريب عن بُعد فقط</td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige">
+                                    <td class="p-3 font-semibold">الامتثال</td>
+                                    <td class="p-3 font-bold text-brand-goldDark"><span class="ltr-num">12</span></td>
+                                    <td class="p-3">مشمول كاملًا — هو سبب اختيار هذا الخيار أصلًا</td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                                    <td class="p-3 font-semibold text-brand-tealDark/55">التجارة</td>
+                                    <td class="p-3 font-bold text-brand-tealDark/45"><span class="ltr-num">+11</span></td>
+                                    <td class="p-3 text-brand-tealDark/60">إضافة اختيارية — ضرورية إن كان البيع أونلاين</td>
+                                </tr>
+                                <tr class="border-b border-brand-lightBeige">
+                                    <td class="p-3 font-semibold text-brand-tealDark/55">التواصل</td>
+                                    <td class="p-3 font-bold text-brand-tealDark/45"><span class="ltr-num">+10</span></td>
+                                    <td class="p-3 text-brand-tealDark/60">إضافة اختيارية — الإشعارات وحدها تكاد تكون ضرورية عمليًا</td>
+                                </tr>
+                                <tr class="bg-brand-tealDark text-white">
+                                    <td class="p-3 rounded-br-xl font-bold">الإجمالي الأساسي</td>
+                                    <td class="p-3 font-bold text-brand-gold"><span class="ltr-num">79</span></td>
+                                    <td class="p-3 rounded-bl-xl text-white/70">ويصل إلى <span class="ltr-num">100</span> بإضافة التجارة والتواصل</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-brand-white border border-brand-lightBeige rounded-xl p-5 space-y-3">
+                            <h4 class="text-sm flex items-center gap-2">
+                                <i class="fas fa-circle-question text-brand-gold text-xs"></i> ما يعنيه «الموقع قائم» بدقة
+                            </h4>
+                            <p class="text-[11px] text-brand-tealDark/80 leading-loose">
+                                يعني أن الموقع التعريفي والهوية البصرية موجودان ويرضى عنهما العميل، فنبني
+                                منصة التدريب <strong>ضمنه أو بجواره على نفس النطاق</strong> ونستخدم هويته البصرية
+                                بدل تصميم جديد. هذا ما يوفّره الخيار: لا يوفّر بناء اللوحات ولا الصلاحيات ولا التعريب.
+                            </p>
+                            <div class="bg-brand-warn/[0.08] border border-brand-warn/25 rounded-lg p-3">
+                                <p class="text-[10.5px] text-brand-tealDark/85 leading-relaxed">
+                                    <strong>سوء فهم شائع:</strong> يظن العميل أن «الموقع قائم» يعني خصمًا كبيرًا.
+                                    وضّح أن الموقع التعريفي جزء صغير جدًا من العمل — والوفر الحقيقي في التصميم فقط.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-brand-white border border-brand-lightBeige rounded-xl p-5 space-y-3">
+                            <h4 class="text-sm flex items-center gap-2">
+                                <i class="fas fa-arrow-up-right-dots text-brand-ok text-xs"></i> فرص الترقية داخل الصفقة
+                            </h4>
+                            <ul class="text-[11px] text-brand-tealDark/85 space-y-2 leading-relaxed custom-bullets">
+                                <li>التجارة (<span class="ltr-num">+11</span>): اسأل «كيف يدفع المتدرب اليوم؟» — إن كان تحويلًا بنكيًا يدويًا فهذه فرصة واضحة</li>
+                                <li>التواصل (<span class="ltr-num">+10</span>): «من يذكّر المتدرب بالجلسة القادمة الآن؟»</li>
+                                <li>مراقبة الامتثال الشهرية — تُطرح قبل التسليم لا بعده</li>
+                                <li>الاستضافة المُدارة — تحوّل الخادم المخصّص من عبء العميل إلى إيراد متكرر لك</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- تفصيل الخيار 3 -->
+            <details class="bg-brand-white border border-brand-lightBeige rounded-2xl shadow-sm overflow-hidden">
+                <summary class="p-6 flex items-center justify-between gap-4 hover:bg-brand-teal/50 transition-colors">
+                    <div class="flex items-center gap-4">
+                        <span class="seq-num text-2xl font-extrabold text-brand-lightBeige">٠٣</span>
+                        <div class="text-right">
+                            <h3 class="text-base">الباقة الكاملة</h3>
+                            <p class="text-[11px] text-brand-tealDark/55 mt-0.5">وزن <span class="ltr-num">100</span> · الأعلى هامشًا والأقل مخاطرة تنفيذية</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-down chev text-brand-gold text-sm"></i>
+                </summary>
+
+                <div class="px-6 pb-6 space-y-5 border-t border-brand-lightBeige pt-5">
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                        <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige text-center">
+                            <p class="text-xl font-bold seq-num"><span class="ltr-num">29</span></p>
+                            <p class="text-[10.5px] text-brand-tealDark/60 mt-1">الأساس</p>
+                        </div>
+                        <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige text-center">
+                            <p class="text-xl font-bold seq-num"><span class="ltr-num">38</span></p>
+                            <p class="text-[10.5px] text-brand-tealDark/60 mt-1">التدريب</p>
+                        </div>
+                        <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige text-center">
+                            <p class="text-xl font-bold seq-num"><span class="ltr-num">11</span></p>
+                            <p class="text-[10.5px] text-brand-tealDark/60 mt-1">التجارة</p>
+                        </div>
+                        <div class="bg-brand-teal rounded-xl p-4 border border-brand-lightBeige text-center">
+                            <p class="text-xl font-bold seq-num"><span class="ltr-num">10</span></p>
+                            <p class="text-[10.5px] text-brand-tealDark/60 mt-1">التواصل</p>
+                        </div>
+                        <div class="bg-brand-tealDark rounded-xl p-4 text-center">
+                            <p class="text-xl font-bold seq-num text-brand-gold"><span class="ltr-num">12</span></p>
+                            <p class="text-[10.5px] text-white/70 mt-1">الامتثال</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-brand-white border border-brand-lightBeige rounded-xl p-5 space-y-3">
+                            <h4 class="text-sm flex items-center gap-2">
+                                <i class="fas fa-bullseye text-brand-gold text-xs"></i> متى يكون هذا هو الخيار الصحيح
+                            </h4>
+                            <ul class="text-[11px] text-brand-tealDark/85 space-y-2 leading-relaxed custom-bullets">
+                                <li>لا يوجد نظام قائم، أو القائم لا يستحق البناء عليه</li>
+                                <li>العميل يبيع مقرراته أونلاين ويريد التحصيل داخل المنصة</li>
+                                <li>عدد المدربين كبير ويحتاج طلبات انضمام واعتمادًا منظّمًا</li>
+                                <li>الجهة تسعى للاعتماد أو تجدّده — فالامتثال ليس اختياريًا</li>
+                                <li>العميل تعرّض سابقًا لتسعير بالمقعد ويريد التملّك</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-brand-white border border-brand-lightBeige rounded-xl p-5 space-y-3">
+                            <h4 class="text-sm flex items-center gap-2">
+                                <i class="fas fa-plus text-brand-goldDark text-xs"></i> الإضافات الشائعة فوق الـ<span class="ltr-num">100</span>
+                            </h4>
+                            <ul class="text-[11px] text-brand-tealDark/85 space-y-2 leading-relaxed custom-bullets">
+                                <li>تصميم بصري مخصّص: <span class="ltr-num">+10</span> إلى <span class="ltr-num">+20</span></li>
+                                <li>ترحيل بيانات قائمة: <span class="ltr-num">+5</span> إلى <span class="ltr-num">+15</span> — <strong>لا تُقدّرها قبل رؤية البيانات</strong></li>
+                                <li>تنفيذ عاجل: <span class="ltr-num">+20</span> إلى <span class="ltr-num">+30</span> — أو ارفض، فالامتثال المضغوط يفشل</li>
+                                <li>تقارير إضافية خارج الحزمة القياسية: تُسعّر منفصلة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- ============ QUICK COMPARISON ============ -->
+        <section class="space-y-8 pt-2">
+            <div class="text-center">
+                <h2 class="text-2xl mb-2">جدول المقارنة السريع</h2>
+                <p class="text-sm text-brand-tealDark/60">استخدمه في الاجتماع مباشرة عند سؤال العميل «ما الفرق؟»</p>
+            </div>
+
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-4 md:p-6 shadow-sm overflow-x-auto">
+                <table class="w-full text-right text-xs min-w-[780px]">
+                    <thead>
+                        <tr class="bg-brand-tealDark text-brand-white">
+                            <th class="p-3 rounded-tr-xl font-semibold w-40">المحور</th>
+                            <th class="p-3 font-semibold">الخيار 1 — ربط فقط</th>
+                            <th class="p-3 font-semibold bg-brand-goldDark">الخيار 2 — لوحة + تكامل</th>
+                            <th class="p-3 rounded-tl-xl font-semibold">الخيار 3 — الباقة الكاملة</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-brand-tealDark/90">
+                        <tr class="border-b border-brand-lightBeige">
+                            <td class="p-3 font-semibold">وزن النطاق</td>
+                            <td class="p-3 font-bold"><span class="ltr-num">26</span></td>
+                            <td class="p-3 font-bold bg-brand-gold/[0.07]"><span class="ltr-num">79</span></td>
+                            <td class="p-3 font-bold"><span class="ltr-num">100</span></td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                            <td class="p-3 font-semibold">من يملك الشيفرة الأساسية</td>
+                            <td class="p-3">مزوّد النظام القائم — نملك طبقة الربط فقط</td>
+                            <td class="p-3 bg-brand-gold/[0.07]">العميل يملك المنصة كاملة</td>
+                            <td class="p-3">العميل يملك كل شيء</td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige">
+                            <td class="p-3 font-semibold">الواجهة العربية RTL</td>
+                            <td class="p-3 text-brand-alert font-semibold">حسب النظام القائم — خارج مسؤوليتنا</td>
+                            <td class="p-3 text-brand-ok font-semibold bg-brand-gold/[0.07]">مبنية من الأساس</td>
+                            <td class="p-3 text-brand-ok font-semibold">مبنية من الأساس</td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                            <td class="p-3 font-semibold">مخاطر التنفيذ</td>
+                            <td class="p-3 text-brand-alert font-semibold">عالية — تعتمد على شيفرة غيرنا</td>
+                            <td class="p-3 text-brand-ok font-semibold bg-brand-gold/[0.07]">منخفضة</td>
+                            <td class="p-3 text-brand-ok font-semibold">الأدنى — نطاق مُختبَر بالكامل</td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige">
+                            <td class="p-3 font-semibold">مدة البناء النسبية</td>
+                            <td class="p-3">قصيرة</td>
+                            <td class="p-3 bg-brand-gold/[0.07]">متوسطة</td>
+                            <td class="p-3">كاملة</td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                            <td class="p-3 font-semibold">مدة التحقق الوطني</td>
+                            <td class="p-3 font-semibold" colspan="3">
+                                <span class="text-brand-warn">ثابتة تقريبًا في الخيارات الثلاثة</span> — لا تنكمش بصغر النطاق
+                            </td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige">
+                            <td class="p-3 font-semibold">الأنسب لمن</td>
+                            <td class="p-3">جهة راضية عن منصتها وتحتاج الاعتماد فقط</td>
+                            <td class="p-3 bg-brand-gold/[0.07]">جهة لديها موقع تعريفي وتريد منصة تدريب حقيقية</td>
+                            <td class="p-3">جهة تبدأ من الصفر أو تبيع أونلاين</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold">الإيراد المتكرر المرتبط</td>
+                            <td class="p-3">مراقبة الامتثال + الاستضافة المُدارة</td>
+                            <td class="p-3 bg-brand-gold/[0.07]">الكل + صيانة المنصة</td>
+                            <td class="p-3">الكل + عمليات المحتوى + باقة تطوير</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ PRICING CALCULATOR ============ -->
+        <section class="space-y-8 pt-2" id="calculator">
+            <div class="text-center">
+                <span class="bg-brand-gold/10 text-brand-goldDark border border-brand-gold/20 text-[11px] px-4 py-1.5 rounded-full font-semibold inline-block mb-3">
+                    أداة تفاعلية
+                </span>
+                <h2 class="text-2xl mb-2">حاسبة بناء عرض السعر</h2>
+                <p class="text-sm text-brand-tealDark/60 max-w-3xl mx-auto leading-relaxed">
+                    <strong>لن تحتاجها في أغلب الصفقات.</strong> استخدمها فقط إذا طلب العميل نطاقًا لا يطابق
+                    أيًّا من الخيارات الثلاثة — مثل الخيار 2 مع التجارة فقط دون المراسلات
+                </p>
+                <div class="max-w-xl mx-auto bg-brand-teal border border-brand-lightBeige rounded-xl p-4 mt-4">
+                    <p class="text-[11px] text-brand-tealDark/80 leading-relaxed">
+                        <i class="fas fa-circle-info text-brand-gold ml-1"></i>
+                        اختر المسار، ثم الخيار الأقرب، ثم أضف ما يريده. الحاسبة تتكفّل بالباقي
+                        وتعطيك رقمًا مقرّبًا جاهزًا للعرض.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 md:p-8 shadow-sm space-y-7">
+                <!-- الخطوة 1 -->
+                <div class="space-y-3">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <span class="bg-brand-tealDark text-brand-gold w-6 h-6 rounded-lg flex items-center justify-center text-[11px] font-bold shrink-0">1</span>
+                        اختر المسار التقني
+                    </h4>
+                    <p class="text-[11px] text-brand-tealDark/60 leading-relaxed pr-8">
+                        المسار يضبط أساس الاحتساب <span class="ltr-num">T</span> تلقائيًا حسب جدول الأسعار المعتمد.
+                        يمكنك تعديل <span class="ltr-num">T</span> يدويًا إذا وافقت الإدارة على أساس مختلف.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pr-8">
+                        <label class="track-card selected bg-brand-teal border-2 border-brand-lightBeige rounded-xl p-4 block cursor-pointer" data-track="wp">
+                            <input type="radio" name="buildTrack" value="95000" class="sr-only" data-track="wp" checked>
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-xs font-bold flex items-center gap-2">
+                                    <i class="fab fa-wordpress text-brand-goldDark"></i> مسار ووردبريس
+                                </span>
+                                <span class="pill bg-brand-gold/20 text-brand-goldDark"><span class="ltr-num">T = 95,000</span></span>
+                            </div>
+                            <p class="text-[10.5px] text-brand-tealDark/65 leading-relaxed">التوصية الافتراضية — أسرع وأقل كلفة، وطبقة الرفع جاهزة عليه</p>
+                        </label>
+
+                        <label class="track-card bg-brand-teal border-2 border-brand-lightBeige rounded-xl p-4 block cursor-pointer" data-track="native">
+                            <input type="radio" name="buildTrack" value="190000" class="sr-only" data-track="native">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-xs font-bold flex items-center gap-2">
+                                    <i class="fas fa-layer-group text-brand-goldDark"></i> تطوير أصلي
+                                </span>
+                                <span class="pill bg-brand-lightBeige text-brand-tealDark/70"><span class="ltr-num">T = 190,000</span></span>
+                            </div>
+                            <p class="text-[10.5px] text-brand-tealDark/65 leading-relaxed">بسبب حقيقي فقط — شرط تعاقدي، حجم ضخم، أو تعدّد كيانات</p>
+                        </label>
+                    </div>
+                    <div class="pr-8 max-w-xs pt-1">
+                        <label class="text-[11px] text-brand-tealDark/60 block mb-1.5" for="tValue">
+                            أساس الاحتساب <span class="ltr-num">T</span> (ر.س)
+                        </label>
+                        <input type="number" id="tValue" class="calc-input" value="95000" min="0" step="1000" inputmode="numeric">
+                    </div>
+                </div>
+
+                <!-- الخطوة 2 -->
+                <div class="space-y-3 border-t border-brand-lightBeige pt-6">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <span class="bg-brand-tealDark text-brand-gold w-6 h-6 rounded-lg flex items-center justify-center text-[11px] font-bold shrink-0">2</span>
+                        اختر الخيار (النطاق)
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pr-8">
+                        <label class="opt-card bg-brand-teal border-2 border-brand-lightBeige rounded-xl p-4 block" data-opt="1">
+                            <input type="radio" name="scopeOption" value="26" class="sr-only" data-opt="1">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-xs font-bold">الخيار 1</span>
+                                <span class="pill bg-brand-lightBeige text-brand-tealDark/70">وزن <span class="ltr-num">26</span></span>
+                            </div>
+                            <p class="text-[10.5px] text-brand-tealDark/65 leading-relaxed">ربط الرفع الوطني على نظام قائم</p>
+                        </label>
+
+                        <label class="opt-card selected bg-brand-teal border-2 border-brand-lightBeige rounded-xl p-4 block" data-opt="2">
+                            <input type="radio" name="scopeOption" value="79" class="sr-only" data-opt="2" checked>
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-xs font-bold">الخيار 2</span>
+                                <span class="pill bg-brand-gold/20 text-brand-goldDark">وزن <span class="ltr-num">79</span></span>
+                            </div>
+                            <p class="text-[10.5px] text-brand-tealDark/65 leading-relaxed">الموقع قائم — لوحة تحكم وتكامل</p>
+                        </label>
+
+                        <label class="opt-card bg-brand-teal border-2 border-brand-lightBeige rounded-xl p-4 block" data-opt="3">
+                            <input type="radio" name="scopeOption" value="100" class="sr-only" data-opt="3">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-xs font-bold">الخيار 3</span>
+                                <span class="pill bg-brand-lightBeige text-brand-tealDark/70">وزن <span class="ltr-num">100</span></span>
+                            </div>
+                            <p class="text-[10.5px] text-brand-tealDark/65 leading-relaxed">الباقة الكاملة من الصفر</p>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- الخطوة 3 -->
+                <div class="space-y-3 border-t border-brand-lightBeige pt-6">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <span class="bg-brand-tealDark text-brand-gold w-6 h-6 rounded-lg flex items-center justify-center text-[11px] font-bold shrink-0">3</span>
+                        الإضافات الاختيارية
+                    </h4>
+                    <div class="pr-8 space-y-2" id="addonsBox">
+                        <label class="flex items-center gap-3 bg-brand-teal border border-brand-lightBeige rounded-xl p-3 cursor-pointer">
+                            <input type="checkbox" class="addon accent-[#062825] w-4 h-4" data-w="11">
+                            <div class="flex-1">
+                                <p class="text-xs font-semibold">مجموعة التجارة <span class="text-brand-tealDark/50 font-normal">(+<span class="ltr-num">11</span>)</span></p>
+                                <p class="text-[10px] text-brand-tealDark/55">تسعير، دفع، تسجيل تلقائي، إيصالات، استرجاع</p>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 bg-brand-teal border border-brand-lightBeige rounded-xl p-3 cursor-pointer">
+                            <input type="checkbox" class="addon accent-[#062825] w-4 h-4" data-w="10">
+                            <div class="flex-1">
+                                <p class="text-xs font-semibold">مجموعة التواصل <span class="text-brand-tealDark/50 font-normal">(+<span class="ltr-num">10</span>)</span></p>
+                                <p class="text-[10px] text-brand-tealDark/55">إشعارات، مراسلات، تذكير جلسات، طلبات مدربين</p>
+                            </div>
+                        </label>
+                        <p id="addonNote" class="text-[10.5px] text-brand-ok pr-1 hidden">
+                            <i class="fas fa-circle-check text-[9px]"></i> <span id="addonNoteText">المجموعتان مشمولتان أصلًا في الخيار الثالث</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- الخطوة 4 -->
+                <div class="space-y-3 border-t border-brand-lightBeige pt-6">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <span class="bg-brand-tealDark text-brand-gold w-6 h-6 rounded-lg flex items-center justify-center text-[11px] font-bold shrink-0">4</span>
+                        التعديلات — تُضاف كنقاط وزن
+                    </h4>
+                    <div class="pr-8 bg-brand-teal border border-brand-lightBeige rounded-xl p-4">
+                        <div class="adj-row">
+                            <div class="flex-1">
+                                <p class="text-xs font-semibold">تصميم بصري مخصّص</p>
+                                <p class="text-[10px] text-brand-tealDark/55">المدى الموصى به: <span class="ltr-num">10</span>–<span class="ltr-num">20</span></p>
+                            </div>
+                            <input type="number" class="adj calc-input w-24" value="0" min="0" max="40" step="1" inputmode="numeric">
+                        </div>
+                        <div class="adj-row">
+                            <div class="flex-1">
+                                <p class="text-xs font-semibold">ترحيل بيانات قائمة</p>
+                                <p class="text-[10px] text-brand-tealDark/55">المدى: <span class="ltr-num">5</span>–<span class="ltr-num">15</span> — لا تُقدّرها قبل رؤية البيانات</p>
+                            </div>
+                            <input type="number" class="adj calc-input w-24" value="0" min="0" max="40" step="1" inputmode="numeric">
+                        </div>
+                        <div class="adj-row">
+                            <div class="flex-1">
+                                <p class="text-xs font-semibold">تنفيذ عاجل</p>
+                                <p class="text-[10px] text-brand-tealDark/55">المدى: <span class="ltr-num">20</span>–<span class="ltr-num">30</span> — أو ارفض الضغط على مرحلة الامتثال</p>
+                            </div>
+                            <input type="number" class="adj calc-input w-24" value="0" min="0" max="50" step="1" inputmode="numeric">
+                        </div>
+                        <div class="adj-row">
+                            <div class="flex-1">
+                                <p class="text-xs font-semibold text-brand-ok">خصم إعادة الاستخدام (مشروع متكرر)</p>
+                                <p class="text-[10px] text-brand-tealDark/55">اخصم من التدريب والتجارة فقط — <strong>لا تخصم من الانتقال للإنتاج</strong></p>
+                            </div>
+                            <input type="number" id="reuseDiscount" class="adj calc-input w-24" value="0" min="0" max="30" step="1" inputmode="numeric">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- النتيجة -->
+                <div class="border-t border-brand-lightBeige pt-6">
+                    <div class="bg-brand-tealDark rounded-2xl p-6 md:p-7 space-y-5">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div>
+                                <p class="text-[11px] text-white/55 mb-1">وزن النطاق</p>
+                                <p class="text-xl font-bold seq-num text-white"><span class="ltr-num" id="outScope">79</span></p>
+                            </div>
+                            <div>
+                                <p class="text-[11px] text-white/55 mb-1">وزن التعديلات</p>
+                                <p class="text-xl font-bold seq-num text-white"><span class="ltr-num" id="outAdj">0</span></p>
+                            </div>
+                            <div>
+                                <p class="text-[11px] text-white/55 mb-1">الوزن الإجمالي</p>
+                                <p class="text-xl font-bold seq-num text-brand-goldLight"><span class="ltr-num" id="outTotalW">79</span></p>
+                            </div>
+                            <div>
+                                <p class="text-[11px] text-white/55 mb-1">نسبة من <span class="ltr-num">T</span></p>
+                                <p class="text-xl font-bold seq-num text-white"><span class="ltr-num" id="outPct">79%</span></p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-white/10 pt-5 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                            <div>
+                                <p class="text-[11px] text-white/55 mb-1.5">
+                                    السعر المقترح للعرض — <span id="outTrack" class="text-brand-goldLight font-semibold">مسار ووردبريس</span>
+                                </p>
+                                <p class="text-3xl md:text-4xl font-bold text-brand-gold seq-num">
+                                    <span class="ltr-num" id="outPrice">75,050</span>
+                                    <span class="text-base font-normal text-white/60">ر.س</span>
+                                </p>
+                                <p class="text-[10.5px] text-white/45 mt-1.5">
+                                    غير شامل ضريبة القيمة المضافة · مقرّبًا لأعلى:
+                                    <span class="ltr-num font-bold text-white/70" id="outRounded">75,000</span> ر.س
+                                </p>
+                            </div>
+                            <p class="text-[10.5px] text-white/45 leading-relaxed max-w-xs">
+                                رقم إرشادي مبني على أوزان الجهد. اعرض الرقم المقرّب،
+                                ولا تعرض التفصيل بالوحدات على العميل.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-warn/[0.08] border border-brand-warn/25 rounded-xl p-4">
+                    <p class="text-[11px] text-brand-tealDark/85 leading-loose">
+                        <i class="fas fa-triangle-exclamation text-brand-warn ml-1"></i>
+                        <strong>لا تُظهر هذه الحاسبة للعميل ولا تُرسل مخرجاتها المفصّلة.</strong>
+                        العميل يستقبل سعر مشروع واحدًا مع وصف نطاق. الأوزان أداة داخلية لبناء الرقم
+                        والدفاع عنه، لا لعرضه.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ FULL MODULE INVENTORY ============ -->
+        <section class="space-y-8 pt-2" id="inventory">
+            <div class="text-center">
+                <div class="flex justify-center mb-3"><span class="pill bg-brand-lightBeige text-brand-tealDark/60">تفصيل فني — اختياري للمندوب</span></div>
+                <h2 class="text-2xl mb-2">جرد الوحدات الكامل — بنود عرض السعر</h2>
+                <p class="text-sm text-brand-tealDark/60 max-w-3xl mx-auto leading-relaxed">
+                    كل صف قابل للبيع منفصلًا. عمود الوزن هو <em>الجهد النسبي</em> حيث النظام الكامل يساوي
+                    <span class="ltr-num font-bold">100</span>
+                </p>
+            </div>
+
+            <!-- الأساس -->
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-4 md:p-6 shadow-sm space-y-3 overflow-x-auto">
+                <div class="flex items-center justify-between px-1">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <span class="w-1.5 h-5 bg-brand-alert rounded-full block"></span> الأساس — إلزامي في كل مشروع
+                    </h4>
+                    <span class="pill bg-brand-alert/10 text-brand-alert border border-brand-alert/20">لا يُخصم أبدًا</span>
+                </div>
+                <table class="w-full text-right text-xs min-w-[600px]">
+                    <thead>
+                        <tr class="bg-brand-tealDark text-brand-white">
+                            <th class="p-3 rounded-tr-xl font-semibold w-56">الوحدة</th>
+                            <th class="p-3 font-semibold w-20">الوزن</th>
+                            <th class="p-3 rounded-tl-xl font-semibold">ما هي</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-brand-tealDark/90">
+                        <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">معمارية الإضافة والنواة</td><td class="p-3 font-bold"><span class="ltr-num">6</span></td><td class="p-3">نظام الوحدات، التوجيه، الإعدادات، طبقة قاعدة البيانات، إدارة الترقيات</td></tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">مصادقة مخصّصة</td><td class="p-3 font-bold"><span class="ltr-num">5</span></td><td class="p-3">دخول، تسجيل، تفعيل بالبريد، استرجاع كلمة المرور — دون شاشة ووردبريس</td></tr>
+                        <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">الأدوار والصلاحيات</td><td class="p-3 font-bold"><span class="ltr-num">3</span></td><td class="p-3">تحكم بالوصول قائم على القدرات في كل الشاشات</td></tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">اللوحات الثلاث</td><td class="p-3 font-bold"><span class="ltr-num">5</span></td><td class="p-3">مدير، مدرب، متدرب — تخطيط واحد يتغيّر بالدور</td></tr>
+                        <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">العربية وRTL والتدويل</td><td class="p-3 font-bold"><span class="ltr-num">6</span></td><td class="p-3">واجهة ثنائية اللغة، تبديل لكل مستخدم، صيغ الجمع الستّ</td></tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">الوضع الليلي ونظام التصميم</td><td class="p-3 font-bold"><span class="ltr-num">2</span></td><td class="p-3">تنسيق قائم على الرموز التصميمية</td></tr>
+                        <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">شاشة الحالة والتشخيص</td><td class="p-3 font-bold"><span class="ltr-num">2</span></td><td class="p-3">صفحة فحص ذاتي للتهيئة</td></tr>
+                        <tr class="bg-brand-tealDark text-white"><td class="p-3 rounded-br-xl font-bold">مجموع الأساس</td><td class="p-3 font-bold text-brand-gold"><span class="ltr-num">29</span></td><td class="p-3 rounded-bl-xl text-white/60">مهما صغر باقي النطاق</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- التدريب -->
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-4 md:p-6 shadow-sm space-y-3 overflow-x-auto">
+                <h4 class="text-sm flex items-center gap-2 px-1">
+                    <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> التدريب
+                </h4>
+                <table class="w-full text-right text-xs min-w-[600px]">
+                    <thead>
+                        <tr class="bg-brand-tealDark text-brand-white">
+                            <th class="p-3 rounded-tr-xl font-semibold w-56">الوحدة</th>
+                            <th class="p-3 font-semibold w-20">الوزن</th>
+                            <th class="p-3 rounded-tl-xl font-semibold">ما هي</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-brand-tealDark/90">
+                        <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">المقررات والتصنيفات</td><td class="p-3 font-bold"><span class="ltr-num">4</span></td><td class="p-3">فئات، مستويات، أنماط تقديم، مدن، مدربون</td></tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">الكتالوج العام</td><td class="p-3 font-bold"><span class="ltr-num">3</span></td><td class="p-3">شبكة بطاقات، فلاتر، ترقيم صفحات</td></tr>
+                        <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">بناء المنهج</td><td class="p-3 font-bold"><span class="ltr-num">5</span></td><td class="p-3">أقسام، دروس، ترتيب بالسحب والإفلات</td></tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">دروس الفيديو والتتبّع</td><td class="p-3 font-bold"><span class="ltr-num">4</span></td><td class="p-3">مشغّل ذاتي الاستضافة، تتبّع <span class="ltr-num">90%</span> مشاهدة، مقاوم للتخطّي</td></tr>
+                        <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">التقدّم ودروس المعاينة</td><td class="p-3 font-bold"><span class="ltr-num">3</span></td><td class="p-3">إكمال لكل درس، قواعد الوصول المجاني للمعاينة</td></tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">الاختبارات</td><td class="p-3 font-bold"><span class="ltr-num">6</span></td><td class="p-3">تصحيح آلي ويدوي، درجات جزئية، محاولات، رصد الدرجات</td></tr>
+                        <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">الواجبات والمشاريع</td><td class="p-3 font-bold"><span class="ltr-num">4</span></td><td class="p-3">رفع خاص، تصحيح، ملاحظات</td></tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">الحضور</td><td class="p-3 font-bold"><span class="ltr-num">3</span></td><td class="p-3">جلسات حضورية وافتراضية</td></tr>
+                        <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">الشهادات</td><td class="p-3 font-bold"><span class="ltr-num">4</span></td><td class="p-3">إصدار، سحب، تحقق عام بالرقم التسلسلي</td></tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">تقييم المقررات</td><td class="p-3 font-bold"><span class="ltr-num">2</span></td><td class="p-3">نجوم ومراجعات مكتوبة</td></tr>
+                        <tr class="bg-brand-tealDark text-white"><td class="p-3 rounded-br-xl font-bold">مجموع التدريب</td><td class="p-3 font-bold text-brand-gold"><span class="ltr-num">38</span></td><td class="p-3 rounded-bl-xl text-white/60">أكبر مجموعة — وأول ما يُقلَّص عند ضيق الميزانية</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- التجارة والتواصل -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-4 md:p-6 shadow-sm space-y-3 overflow-x-auto">
+                    <h4 class="text-sm flex items-center gap-2 px-1">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> التجارة
+                    </h4>
+                    <table class="w-full text-right text-xs min-w-[380px]">
+                        <thead>
+                            <tr class="bg-brand-tealDark text-brand-white">
+                                <th class="p-3 rounded-tr-xl font-semibold">الوحدة</th>
+                                <th class="p-3 font-semibold w-16">الوزن</th>
+                                <th class="p-3 rounded-tl-xl font-semibold">ما هي</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-brand-tealDark/90">
+                            <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">جسر ووكومرس</td><td class="p-3 font-bold"><span class="ltr-num">4</span></td><td class="p-3">تسعير، إنشاء منتج، تحويل الشراء لتسجيل</td></tr>
+                            <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">التسجيلات</td><td class="p-3 font-bold"><span class="ltr-num">3</span></td><td class="p-3">يدوي، تلقائي، انتهاء، أثر رجعي</td></tr>
+                            <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">الاسترجاع</td><td class="p-3 font-bold"><span class="ltr-num">2</span></td><td class="p-3">إلغاء بند دون المساس ببقية الطلب</td></tr>
+                            <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">المشتريات والإيصالات</td><td class="p-3 font-bold"><span class="ltr-num">2</span></td><td class="p-3">سجل طلبات المتدرب</td></tr>
+                            <tr class="bg-brand-tealDark text-white"><td class="p-3 rounded-br-xl font-bold">المجموع</td><td class="p-3 font-bold text-brand-gold"><span class="ltr-num">11</span></td><td class="p-3 rounded-bl-xl"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-4 md:p-6 shadow-sm space-y-3 overflow-x-auto">
+                    <h4 class="text-sm flex items-center gap-2 px-1">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> التواصل
+                    </h4>
+                    <table class="w-full text-right text-xs min-w-[380px]">
+                        <thead>
+                            <tr class="bg-brand-tealDark text-brand-white">
+                                <th class="p-3 rounded-tr-xl font-semibold">الوحدة</th>
+                                <th class="p-3 font-semibold w-16">الوزن</th>
+                                <th class="p-3 rounded-tl-xl font-semibold">ما هي</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-brand-tealDark/90">
+                            <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">الإشعارات</td><td class="p-3 font-bold"><span class="ltr-num">3</span></td><td class="p-3">داخل المنصة وبالبريد، بتفضيلات لكل مستخدم</td></tr>
+                            <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">المراسلات</td><td class="p-3 font-bold"><span class="ltr-num">3</span></td><td class="p-3">متدرب ↔ مدرب وإدارة، بقواعد عزل</td></tr>
+                            <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">تذكير الجلسات</td><td class="p-3 font-bold"><span class="ltr-num">1</span></td><td class="p-3">بريد مجدول</td></tr>
+                            <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">طلبات المدربين</td><td class="p-3 font-bold"><span class="ltr-num">3</span></td><td class="p-3">نموذج عام، رفع سيرة، مراجعة، الاعتماد يُنشئ الحساب</td></tr>
+                            <tr class="bg-brand-tealDark text-white"><td class="p-3 rounded-br-xl font-bold">المجموع</td><td class="p-3 font-bold text-brand-gold"><span class="ltr-num">10</span></td><td class="p-3 rounded-bl-xl"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- الامتثال -->
+            <div class="bg-brand-white border-2 border-brand-gold/40 rounded-2xl p-4 md:p-6 shadow-sm space-y-3 overflow-x-auto">
+                <div class="flex items-center justify-between px-1">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> الامتثال — البند المميّز
+                    </h4>
+                    <span class="pill bg-brand-gold/15 text-brand-goldDark border border-brand-gold/25">أعلى قيمة تنافسية</span>
+                </div>
+                <table class="w-full text-right text-xs min-w-[600px]">
+                    <thead>
+                        <tr class="bg-brand-tealDark text-brand-white">
+                            <th class="p-3 rounded-tr-xl font-semibold w-56">الوحدة</th>
+                            <th class="p-3 font-semibold w-20">الوزن</th>
+                            <th class="p-3 rounded-tl-xl font-semibold">ما هي</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-brand-tealDark/90">
+                        <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">طبقة الرفع الوطني</td><td class="p-3 font-bold"><span class="ltr-num">8</span></td><td class="p-3">عبارات xAPI لثمانية أنواع أحداث، طابور، إعادة محاولة، شاشة إدارة</td></tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60"><td class="p-3 font-semibold">هوية المقرر والمتدرب</td><td class="p-3 font-bold"><span class="ltr-num">2</span></td><td class="p-3">أكواد المقررات، معالجة رقم الهوية، حل تعارض الهويات</td></tr>
+                        <tr class="border-b border-brand-lightBeige"><td class="p-3 font-semibold">التحقق والانتقال للإنتاج</td><td class="p-3 font-bold"><span class="ltr-num">2</span></td><td class="p-3">الرحلة، التحقق من الصحة، المراسلات، تبديل الإنتاج</td></tr>
+                        <tr class="bg-brand-tealDark text-white"><td class="p-3 rounded-br-xl font-bold">مجموع الامتثال</td><td class="p-3 font-bold text-brand-gold"><span class="ltr-num">12</span></td><td class="p-3 rounded-bl-xl text-white/60">الشيفرة قابلة لإعادة الاستخدام — المراسلات والانتظار لا</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ PRICING METHOD ============ -->
+        <section class="space-y-8 pt-2">
+            <div class="text-center">
+                <div class="flex justify-center mb-3"><span class="pill bg-brand-lightBeige text-brand-tealDark/60">للنطاقات غير القياسية فقط</span></div>
+                <h2 class="text-2xl mb-2">طريقة التسعير والتعديلات</h2>
+                <p class="text-sm text-brand-tealDark/60">لا تحتاجها إن كان العميل ضمن أحد الخيارات الثلاثة — الأسعار محسوبة لك مسبقًا</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <span class="seq-num text-3xl font-extrabold text-brand-lightBeige block">١</span>
+                    <h4 class="text-sm">حدّد إجماليك <span class="ltr-num">T</span></h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        كلفة التسليم الواقعية للنظام الكامل بمعدّلك اليومي ومدّتك، زائد هامشك.
+                    </p>
+                </div>
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <span class="seq-num text-3xl font-extrabold text-brand-lightBeige block">٢</span>
+                    <h4 class="text-sm">سعّر النطاق الجزئي</h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        اجمع أوزان الوحدات المشمولة، اقسم على <span class="ltr-num">100</span>،
+                        واضرب في <span class="ltr-num">T</span>.
+                    </p>
+                </div>
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <span class="seq-num text-3xl font-extrabold text-brand-lightBeige block">٣</span>
+                    <h4 class="text-sm">طبّق التعديلات</h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        أضف نقاط الوزن للتعديلات في الجدول أدناه، ثم قرّب الرقم النهائي لأعلى.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-4 md:p-6 shadow-sm overflow-x-auto">
+                <table class="w-full text-right text-xs min-w-[640px]">
+                    <thead>
+                        <tr class="bg-brand-tealDark text-brand-white">
+                            <th class="p-3 rounded-tr-xl font-semibold w-56">التعديل</th>
+                            <th class="p-3 font-semibold w-28">الأثر</th>
+                            <th class="p-3 rounded-tl-xl font-semibold">السبب</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-brand-tealDark/90">
+                        <tr class="border-b border-brand-lightBeige bg-brand-alert/[0.05]">
+                            <td class="p-3 font-semibold">الأساس ليس اختياريًا</td>
+                            <td class="p-3 font-bold text-brand-alert">احسب <span class="ltr-num">29</span> كاملة</td>
+                            <td class="p-3">لا يعمل شيء بدونه مهما صغر باقي النطاق</td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige">
+                            <td class="p-3 font-semibold">المشروع الثاني وما بعده</td>
+                            <td class="p-3 font-bold text-brand-ok">اخصم من التدريب والتجارة</td>
+                            <td class="p-3">إعادة استخدام حقيقية. كن صادقًا فيها — الصدق هنا يكسب الصفقة</td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                            <td class="p-3 font-semibold">الامتثال في مشروع متكرر</td>
+                            <td class="p-3 font-bold text-brand-warn">اخصم البناء، <strong>أبقِ الانتقال</strong></td>
+                            <td class="p-3">الشيفرة قابلة لإعادة الاستخدام. المراسلات والانتظار والتحقق ليست كذلك</td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige">
+                            <td class="p-3 font-semibold">تصميم بصري مخصّص</td>
+                            <td class="p-3 font-bold">أضف <span class="ltr-num">10</span>–<span class="ltr-num">20</span></td>
+                            <td class="p-3">الواجهة المخصّصة عمل حقيقي لا لمسة تجميلية</td>
+                        </tr>
+                        <tr class="border-b border-brand-lightBeige bg-brand-bgColor/60">
+                            <td class="p-3 font-semibold">ترحيل بيانات قائمة</td>
+                            <td class="p-3 font-bold">أضف <span class="ltr-num">5</span>–<span class="ltr-num">15</span></td>
+                            <td class="p-3">يعتمد كليًا على حالة البيانات. <strong>لا تُسعّرها دون رؤيتها</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold">تنفيذ عاجل</td>
+                            <td class="p-3 font-bold text-brand-alert">أضف <span class="ltr-num">20</span>–<span class="ltr-num">30</span></td>
+                            <td class="p-3">أو ارفض. مرحلة الامتثال المضغوطة تفشل — والفشل هنا يكلّف السمعة</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-brand-teal border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-2">
+                <h4 class="text-sm">مثال حسابي توضيحي</h4>
+                <p class="text-xs text-brand-tealDark/85 leading-loose">
+                    عميل يريد التدريب والامتثال، بلا تجارة وبلا مراسلات، على مسار ووردبريس. الأوزان:
+                    <span class="ltr-num font-bold">29 + 38 + 12 = 79</span> — أي الخيار الثاني تمامًا.
+                    عند <span class="ltr-num">T = 95,000</span> ر.س يصبح السعر <span class="ltr-num font-bold">75,000</span> ر.س.
+                    ويريد أيضًا تصميمًا مخصّصًا (بند إضافة = <span class="ltr-num">15,000</span> ر.س).
+                    <strong>عرض السعر: <span class="ltr-num">90,000</span> ر.س</strong> غير شامل الضريبة.
+                    <span class="block text-brand-tealDark/55 mt-1">النطاق نفسه على مسار التطوير الأصلي
+                    (<span class="ltr-num">T = 190,000</span>): <span class="ltr-num font-semibold">150,000</span> +
+                    <span class="ltr-num">30,000</span> = <span class="ltr-num font-semibold">180,000</span> ر.س.</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ ALWAYS SEPARATE ============ -->
+        <section class="space-y-8 pt-2">
+            <div class="text-center">
+                <h2 class="text-2xl mb-2">ما يُحتسب منفصلًا — دائمًا</h2>
+                <p class="text-sm text-brand-tealDark/60 max-w-3xl mx-auto leading-relaxed">
+                    هذه ليست جزءًا من سعر البناء. اذكرها كبنود مستقلة أو استثنها كتابةً في العرض
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2.5">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> الاستضافة
+                    </h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">متكرّرة وباسم العميل. لا تستوعبها في سعرك أبدًا.</p>
+                </div>
+                <div class="bg-brand-white border-2 border-brand-alert/30 rounded-2xl p-6 shadow-sm space-y-3">
+                    <h4 class="text-sm flex items-center gap-2.5 text-brand-alert">
+                        <span class="w-1.5 h-5 bg-brand-alert rounded-full block"></span> الخادم المخصّص والعنوان الثابت
+                    </h4>
+                    <p class="text-xs text-brand-tealDark/80 leading-loose">
+                        شرط لاستقرار الرفع الوطني، وتكلفة متكرّرة. <strong>ارفعها قبل التعاقد</strong> —
+                        هي البند الوحيد الذي يُفاجئ العميل ويُفشل الميزانية.
+                    </p>
+                </div>
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2.5">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> خدمة البريد التشغيلي
+                    </h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        لازمة لأي حجم استخدام حقيقي. بريد الاستضافة الافتراضي يُصنَّف كمزعج،
+                        وكل تسجيل جديد يعتمد عليه.
+                    </p>
+                </div>
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2.5">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> المحتوى التدريبي
+                    </h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        الفيديو والمواد والأسئلة عمل العميل لا عملك. قُلها صراحةً قبل أن تُفترض.
+                    </p>
+                </div>
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2.5">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> مراجعة لغوية بمتحدث أصلي
+                    </h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        يستحق التوصية بها. الاختبارات تُثبت وجود الترجمة، لا جودة قراءتها.
+                    </p>
+                </div>
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2.5">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> رسوم بوابة الدفع وإعدادها
+                    </h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">حساب التاجر يخصّ العميل، ورسومه عليه.</p>
+                </div>
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2.5">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> الدعم والصيانة المستمرة
+                    </h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">باقة مستقلة — راجع قسم الإيرادات المتكررة أدناه.</p>
+                </div>
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2.5">
+                        <span class="w-1.5 h-5 bg-brand-gold rounded-full block"></span> تقارير إضافية خارج الحزمة
+                    </h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        القناع المفضّل لتضخّم النطاق. حدّد الحزمة القياسية كتابةً منذ العرض الأول.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ QUALIFICATION QUESTIONS ============ -->
+        <section class="space-y-8 pt-2" id="qualify">
+            <div class="text-center">
+                <h2 class="text-2xl mb-2">أسئلة التأهيل — اسألها قبل أي رقم</h2>
+                <p class="text-sm text-brand-tealDark/60 max-w-3xl mx-auto leading-relaxed">
+                    إجاباتها تغيّر السعر جوهريًا. وطرحها يجعلك تبدو الشخص الوحيد في الغرفة الذي فعل هذا من قبل
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bg-brand-white border-2 border-brand-gold/35 rounded-2xl p-6 shadow-sm space-y-3">
+                    <h4 class="text-sm flex items-center gap-2 text-brand-goldDark">
+                        <i class="fas fa-shield-halved text-xs"></i> عن الامتثال
+                    </h4>
+                    <ol class="text-xs text-brand-tealDark/85 space-y-2.5 leading-relaxed list-decimal pr-5">
+                        <li>هل أنتم معتمدون، أم في طور التقديم، أم لا تسعون للاعتماد؟</li>
+                        <li>هل لديكم تسجيل قائم لدى المركز الوطني أم يحتاج إنشاءً؟</li>
+                        <li>هل توجد منصة قائمة ترفع بالفعل تحت كيانكم؟
+                            <span class="block text-[10.5px] text-brand-alert mt-1">إن كانت الإجابة نعم: هناك عملية تحويل تُدار. أضف نطاقًا.</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <i class="fas fa-chart-line text-brand-gold text-xs"></i> عن الحجم
+                    </h4>
+                    <ol class="text-xs text-brand-tealDark/85 space-y-2.5 leading-relaxed list-decimal pr-5" start="4">
+                        <li>كم مقررًا عند الإطلاق؟ وكم متدربًا في السنة الأولى؟</li>
+                        <li>كم مدربًا؟ وهل يديرون مقرراتهم بأنفسهم؟</li>
+                        <li>حضوري، أونلاين، أم الاثنان؟</li>
+                    </ol>
+                </div>
+
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <i class="fas fa-cart-shopping text-brand-gold text-xs"></i> عن التجارة
+                    </h4>
+                    <ol class="text-xs text-brand-tealDark/85 space-y-2.5 leading-relaxed list-decimal pr-5" start="7">
+                        <li>هل تُباع المقررات أونلاين أم يُسجَّل المتدرب يدويًا بعد دفع خارجي؟</li>
+                        <li>أي وسائل دفع؟</li>
+                        <li>هل يتقاضى المدربون نسبة من الإيراد؟
+                            <span class="block text-[10.5px] text-brand-tealDark/55 mt-1">يؤثر على نطاق التقارير.</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-3 card-hover">
+                    <h4 class="text-sm flex items-center gap-2">
+                        <i class="fas fa-magnifying-glass text-brand-gold text-xs"></i> عن الوضع الحالي
+                    </h4>
+                    <ol class="text-xs text-brand-tealDark/85 space-y-2.5 leading-relaxed list-decimal pr-5" start="10">
+                        <li>ماذا تستخدمون الآن، وكم يكلّفكم سنويًا؟</li>
+                        <li>هل توجد بيانات للترحيل؟ وهل يمكنني رؤيتها قبل التسعير؟</li>
+                        <li>من يعتمد القرار، وبأي سرعة؟</li>
+                    </ol>
+                </div>
+
+                <div class="md:col-span-2 bg-brand-white border-2 border-brand-alert/30 rounded-2xl p-6 shadow-sm space-y-3">
+                    <h4 class="text-sm flex items-center gap-2 text-brand-alert">
+                        <i class="fas fa-server text-xs"></i> عن الاستضافة — السؤال الثالث عشر، وأهمها عمليًا
+                    </h4>
+                    <ol class="text-xs text-brand-tealDark/85 space-y-2 leading-relaxed list-decimal pr-5" start="13">
+                        <li>أين يُستضاف الموقع الآن، وهل هي استضافة مشتركة؟</li>
+                        <li>هل توجد سياسة تقنية أو كراسة شروط تحدّد لغة أو إطار عمل بعينه؟
+                            <span class="block text-[10.5px] text-brand-tealDark/55 mt-1">يحسم المسار التقني — وبالتالي يضاعف السعر تقريبًا. اسأله قبل ذكر أي رقم.</span>
+                        </li>
+                    </ol>
+                    <div class="bg-brand-alert/[0.06] rounded-lg p-3.5">
+                        <p class="text-[11px] text-brand-tealDark/85 leading-loose">
+                            الاستضافة المشتركة هي <strong>السبب الأول لفشل الامتثال</strong> في هذا السوق.
+                            اطرح هذا مبكرًا جدًا: إنها تكلفة لم يضعها العميل في ميزانيته، واكتشافها متأخرًا
+                            يجعلها تبدو وكأنك تزيد السعر بعد الاتفاق.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ RECURRING REVENUE ============ -->
+        <section class="space-y-8 pt-2" id="recurring">
+            <div class="text-center">
+                <h2 class="text-2xl mb-2">الإيراد المتكرر — حيث الهامش الحقيقي</h2>
+                <p class="text-sm text-brand-tealDark/60 max-w-3xl mx-auto leading-relaxed">
+                    البناء دفعة واحدة. اعرض هذه منفصلة، واعرضها <strong>قبل</strong> التسليم لا بعده
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bg-brand-tealDark rounded-2xl p-7 shadow-sm space-y-3 relative overflow-hidden">
+                    <div class="absolute -top-8 -left-6 text-brand-gold/[0.08] text-8xl pointer-events-none">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <div class="relative z-10 space-y-3">
+                        <span class="pill bg-brand-gold/20 text-brand-goldLight border border-brand-gold/30">الأسهل بيعًا في هذا السوق</span>
+                        <h4 class="text-base text-white">مراقبة الامتثال</h4>
+                        <p class="text-xs text-white/70 leading-loose">
+                            متابعة أن الرفع الوطني ما زال ناجحًا. نمط الفشل صامت — الرفع يتوقف ببساطة،
+                            ولا يلاحظه أحد بلا مراقبة.
+                        </p>
+                        <div class="bg-white/10 rounded-lg p-3">
+                            <p class="text-[11px] text-brand-goldLight leading-relaxed">
+                                <strong>الحجّة في جملة واحدة:</strong> «إن توقّف الرفع، لن تعرفوا
+                                إلا حين يُسأل عن اعتمادكم.»
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-white border-2 border-brand-gold/35 rounded-2xl p-7 shadow-sm space-y-3">
+                    <h4 class="text-base">الاستضافة المُدارة</h4>
+                    <p class="text-xs text-brand-tealDark/75 leading-loose">
+                        أنت تدير الخادم وتملك العنوان الثابت، فتتحوّل تبعية الامتثال من مشكلة العميل
+                        إلى خدمة تبيعها.
+                    </p>
+                    <div class="bg-brand-teal rounded-lg p-3">
+                        <p class="text-[11px] text-brand-tealDark/80 leading-relaxed">
+                            هذه أذكى خدمة في القائمة: تحلّ أكبر مخاطرة تقنية في المشروع،
+                            وتحوّلها إلى إيراد شهري في الوقت نفسه.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-2.5 card-hover">
+                    <h4 class="text-sm">صيانة المنصة</h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        تحديثات ووردبريس وPHP والإضافات، النسخ الاحتياطي، والأمان.
+                    </p>
+                </div>
+
+                <div class="bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-2.5 card-hover">
+                    <h4 class="text-sm">عمليات المحتوى</h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        رفع المقررات والفيديوهات والأسئلة نيابة عن العميل — خدمة يستهين بها الجميع
+                        ويحتاجها معظم العملاء فعليًا.
+                    </p>
+                </div>
+
+                <div class="md:col-span-2 bg-brand-white border border-brand-lightBeige rounded-2xl p-6 shadow-sm space-y-2.5 card-hover">
+                    <h4 class="text-sm">باقة تطوير شهرية</h4>
+                    <p class="text-xs text-brand-tealDark/70 leading-loose">
+                        عدد ساعات تطوير ثابت شهريًا. تمنع تحوّل كل طلب صغير إلى تفاوض جديد،
+                        وتبقي العلاقة مفتوحة بعد انتهاء البناء.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ OBJECTION HANDLING ============ -->
+        <section class="space-y-8 pt-2" id="objections">
+            <div class="text-center">
+                <h2 class="text-2xl mb-2">معالجة الاعتراضات</h2>
+                <p class="text-sm text-brand-tealDark/60">خمسة اعتراضات ستسمعها حرفيًا — والردّ على كل منها</p>
+            </div>
+
+            <div class="space-y-4">
+                <details class="bg-brand-white border border-brand-lightBeige rounded-2xl shadow-sm overflow-hidden">
+                    <summary class="p-5 flex items-center justify-between gap-4 hover:bg-brand-teal/50 transition-colors">
+                        <h4 class="text-sm">«ووردبريس ليس نظامًا مؤسسيًا.»</h4>
+                        <i class="fas fa-chevron-down chev text-brand-gold text-xs"></i>
+                    </summary>
+                    <div class="px-5 pb-5 border-t border-brand-lightBeige pt-4">
+                        <p class="text-xs text-brand-tealDark/85 leading-loose">
+                            المنصة تطبيق مخصّص <em>يعمل على</em> ووردبريس، تمامًا كما يعمل أي تطبيق على أي إطار عمل.
+                            صفر اعتماديات خارجية، مخطط قاعدة بيانات خاص به، وحزمة اختبارات خاصة به.
+                            ما يوفّره ووردبريس هو انتشار الاستضافة وواجهة إدارة يعرفها موظفو العميل مسبقًا.
+                        </p>
+                        <p class="text-xs text-brand-tealDark/85 leading-loose mt-3 bg-brand-teal rounded-lg p-3">
+                            <strong>وإن أصرّ:</strong> لدينا مسار تطوير أصلي كامل — واذكر سعره بصراحة
+                            (<span class="ltr-num">ضعف السعر بالضبط</span>). في أغلب الحالات ينتهي النقاش هنا،
+                            لأن العميل يكتشف أن اعتراضه كان على انطباع لا على متطلب. وإن كان لديه متطلب حقيقي،
+                            فقد بعتَ للتو نطاقًا أكبر.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="bg-brand-white border border-brand-lightBeige rounded-2xl shadow-sm overflow-hidden">
+                    <summary class="p-5 flex items-center justify-between gap-4 hover:bg-brand-teal/50 transition-colors">
+                        <h4 class="text-sm">«لماذا لا نستخدم مودل؟ إنه مجاني.»</h4>
+                        <i class="fas fa-chevron-down chev text-brand-gold text-xs"></i>
+                    </summary>
+                    <div class="px-5 pb-5 border-t border-brand-lightBeige pt-4">
+                        <p class="text-xs text-brand-tealDark/85 leading-loose">
+                            مودل مجاني التنزيل ومكلف التشغيل: يحتاج استضافة متخصّصة ومسؤولي نظام متخصّصين،
+                            وهو لا يرفع للمركز الوطني. قارن الإجمالي لا الرخصة.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="bg-brand-white border border-brand-lightBeige rounded-2xl shadow-sm overflow-hidden">
+                    <summary class="p-5 flex items-center justify-between gap-4 hover:bg-brand-teal/50 transition-colors">
+                        <h4 class="text-sm">«ألا يمكننا شراء إضافة نظام تعلّم جاهزة؟»</h4>
+                        <i class="fas fa-chevron-down chev text-brand-gold text-xs"></i>
+                    </summary>
+                    <div class="px-5 pb-5 border-t border-brand-lightBeige pt-4">
+                        <p class="text-xs text-brand-tealDark/85 leading-loose">
+                            نعم، وستعطيكم التدريب والتجارة. لن تعطيكم الامتثال، ولن تُبنى حول إجراءات عملكم.
+                            اسألهم: ماذا يحدث حين تتعارض خارطة طريق الإضافة مع متطلب الاعتماد لديكم؟
+                        </p>
+                    </div>
+                </details>
+
+                <details class="bg-brand-white border border-brand-lightBeige rounded-2xl shadow-sm overflow-hidden">
+                    <summary class="p-5 flex items-center justify-between gap-4 hover:bg-brand-teal/50 transition-colors">
+                        <h4 class="text-sm">«يبدو هذا مكلفًا.»</h4>
+                        <i class="fas fa-chevron-down chev text-brand-gold text-xs"></i>
+                    </summary>
+                    <div class="px-5 pb-5 border-t border-brand-lightBeige pt-4">
+                        <p class="text-xs text-brand-tealDark/85 leading-loose">
+                            قارنه بثلاث سنوات من التراخيص بالمقعد على عدد المتدربين المتوقع، مضافًا إليها
+                            كلفة اعتماد فاشل. ثم أشر إلى أنه بعد ثلاث سنوات لا يملكون شيئًا في النموذج الأول،
+                            ويملكون كل شيء في النموذج الثاني.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="bg-brand-white border-2 border-brand-gold/35 rounded-2xl shadow-sm overflow-hidden">
+                    <summary class="p-5 flex items-center justify-between gap-4 hover:bg-brand-teal/50 transition-colors">
+                        <h4 class="text-sm text-brand-goldDark">«كيف نتأكد أن جزء الامتثال يعمل فعلًا؟»</h4>
+                        <i class="fas fa-chevron-down chev text-brand-gold text-xs"></i>
+                    </summary>
+                    <div class="px-5 pb-5 border-t border-brand-lightBeige pt-4 space-y-2">
+                        <p class="text-xs text-brand-tealDark/85 leading-loose">
+                            لأنه مرّ بالتحقق ويعمل في الإنتاج. هذه حقيقة قابلة للإثبات لا ادّعاء.
+                            <strong>اعرض عليهم شاشة الرفع مباشرة.</strong>
+                        </p>
+                        <p class="text-[11px] text-brand-ok leading-relaxed">
+                            <i class="fas fa-circle-check text-[10px]"></i>
+                            هذا أقوى اعتراض تتلقّاه، لأنه الوحيد الذي تملك عليه دليلًا حيًا لا يملكه منافسك.
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- ============ PUBLIC REFERENCE + RISKS ============ -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start pt-2" id="reference">
+            <div class="md:col-span-7 bg-brand-white border border-brand-lightBeige rounded-2xl p-8 shadow-sm space-y-5">
+                <h3 class="text-lg flex items-center gap-3">
+                    <i class="fas fa-bullhorn text-brand-gold text-sm"></i> المشروع المرجعي — ما يُقال علنًا
+                </h3>
+                <div class="bg-brand-alert/[0.06] border border-brand-alert/20 rounded-xl p-3.5">
+                    <p class="text-[11px] text-brand-tealDark/85 leading-relaxed">
+                        <strong>لا تذكر اسم العميل قبل موافقته الكتابية.</strong> حتى ذلك الحين استخدم الوصف أدناه حرفيًا.
+                    </p>
+                </div>
+                <div class="bg-brand-teal border-r-4 border-brand-gold rounded-lg p-4">
+                    <p class="text-xs text-brand-tealDark/85 leading-loose">
+                        «أكاديمية سعودية متخصّصة في التجميل وتصفيف الشعر، تقدّم تدريبًا معتمدًا أونلاين وحضوريًا.
+                        بنينا منصة التدريب الخاصة بها كاملة — ثنائية اللغة ومخصّصة لإجراءات عملها —
+                        وأخذناها عبر التكامل الوطني الكامل حتى الرفع المباشر في الإنتاج.»
+                    </p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-xs font-semibold">حقائق يمكنك ذكرها دون تسمية أحد:</p>
+                    <ul class="text-xs text-brand-tealDark/85 space-y-2 leading-relaxed custom-bullets">
+                        <li>اجتياز التحقق الكامل، والرفع يعمل في الإنتاج</li>
+                        <li>منصة ثنائية اللغة عربية أولًا، مبنية يمين-يسار بالتصميم</li>
+                        <li><span class="ltr-num">18</span> وحدة وظيفية، <span class="ltr-num">~42,700</span> سطر، <span class="ltr-num">489</span> اختبارًا آليًا</li>
+                        <li>صفر اعتماديات خارجية أو رسوم تراخيص</li>
+                        <li>أُنجز التكامل بالعمل المباشر مع الدعم الفني للمركز الوطني</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="md:col-span-5 bg-brand-teal border border-brand-lightBeige rounded-2xl p-8 shadow-sm space-y-4 relative overflow-hidden">
+                <div class="absolute -top-10 -left-10 text-brand-gold/10 text-9xl">
+                    <i class="fas fa-file-signature"></i>
+                </div>
+                <div class="relative z-10 space-y-4">
+                    <div class="w-12 h-12 bg-brand-white text-brand-alert rounded-full flex items-center justify-center text-xl border border-brand-lightBeige">
+                        <i class="fas fa-triangle-exclamation"></i>
+                    </div>
+                    <h3 class="text-lg font-bold">مخاطر تُفصح عنها كتابةً</h3>
+                    <p class="text-[11px] text-brand-tealDark/65 leading-relaxed">
+                        ذكرها في العرض يحميك، والعميل يثق بمن يرفعها دون أن يُسأل
+                    </p>
+                    <ol class="text-xs text-brand-tealDark/85 space-y-3 leading-relaxed list-decimal pr-5">
+                        <li><strong>التسجيل لدى المركز الوطني فعل العميل وحده.</strong> لا يقدّم غير الكيان المرخَّص، والمدد تعتمد على طرف ثالث لا تتحكم فيه.</li>
+                        <li><strong>الوصول الشبكي يُمنح لعنوان خادم.</strong> على الاستضافة المشتركة العنوان غير مضمون وقد يتوقف الرفع بلا إنذار.</li>
+                        <li><strong>مدد التحقق خارج سيطرة الجميع.</strong> احسب حسابًا لدورات المراسلة.</li>
+                        <li><strong>المحتوى مسؤولية العميل.</strong> لا محتوى، لا إطلاق — مهما كانت المنصة جاهزة.</li>
+                        <li><strong>تسليم البريد يحتاج خدمة بريد حقيقية.</strong> بريد الاستضافة الافتراضي يُفلتر كمزعج، وكل تسجيل يعتمد عليه.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ FOOTER ============ -->
+        <footer class="bg-brand-white text-brand-tealDark border border-brand-lightBeige rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-right text-xs border-b border-brand-lightBeige pb-6">
+                <div class="space-y-2">
+                    <h5 class="text-sm font-bold mb-3 flex items-center gap-2">
+                        <i class="fas fa-lock text-brand-alert"></i> تصنيف المستند
+                    </h5>
+                    <p class="text-brand-tealDark/80">داخلي — فريق المبيعات فقط</p>
+                    <p class="text-brand-tealDark/60 font-medium">يحتوي أوزان جهد ومنطق تسعير</p>
+                </div>
+
+                <div class="space-y-2">
+                    <h5 class="text-sm font-bold mb-3 flex items-center gap-2">
+                        <i class="fas fa-file-lines text-brand-gold"></i> المستند المرافق
+                    </h5>
+                    <p class="text-brand-tealDark/80">عرض الخدمة — النسخة التي تُرسل للعميل</p>
+                    <p class="text-brand-tealDark/60 leading-relaxed">تحتوي لوحات التحكم المرجعية ومسار الرفع الوطني</p>
+                </div>
+
+                <div class="space-y-2">
+                    <h5 class="text-sm font-bold mb-3 flex items-center gap-2">
+                        <i class="fas fa-envelope text-brand-gold"></i> استفسارات داخلية
+                    </h5>
+                    <p class="text-brand-tealDark/80">
+                        <a href="mailto:gheenunited@gheene.com" class="hover:text-brand-gold transition-colors">gheenunited@gheene.com</a>
+                    </p>
+                    <p class="text-brand-tealDark/60 leading-relaxed pt-1">
+                        راجع الأوزان مع الفريق الفني قبل أي عرض يخرج عن الخيارات الثلاثة.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-brand-tealDark/60 pt-2">
+                <p>جميع الحقوق محفوظة &copy; 2026 | صُنع بواسطة غين الرقمية</p>
+                <div class="flex gap-4">
+                    <a href="https://gheene.com/" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">الموقع الرسمي</a>
+                    <span>•</span>
+                    <span class="font-medium text-brand-tealDark/70">وكالة تسويق رقمي سعودية متكاملة</span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        (function () {
+            var tInput = document.getElementById('tValue');
+            var trackRadios = document.querySelectorAll('input[name="buildTrack"]');
+            var trackCards = document.querySelectorAll('.track-card');
+            var outTrack = document.getElementById('outTrack');
+            var outRounded = document.getElementById('outRounded');
+            var radios = document.querySelectorAll('input[name="scopeOption"]');
+            var optCards = document.querySelectorAll('.opt-card');
+            var addons = document.querySelectorAll('.addon');
+            var addonNote = document.getElementById('addonNote');
+            var addonNoteText = document.getElementById('addonNoteText');
+            var adjInputs = document.querySelectorAll('.adj');
+            var reuse = document.getElementById('reuseDiscount');
+
+            var outScope = document.getElementById('outScope');
+            var outAdj = document.getElementById('outAdj');
+            var outTotalW = document.getElementById('outTotalW');
+            var outPct = document.getElementById('outPct');
+            var outPrice = document.getElementById('outPrice');
+
+            function num(el) {
+                var v = parseFloat(el.value);
+                return isNaN(v) ? 0 : v;
+            }
+
+            function selectedOption() {
+                var r = document.querySelector('input[name="scopeOption"]:checked');
+                return r ? r : null;
+            }
+
+            function recalc() {
+                var r = selectedOption();
+                var opt = r ? r.getAttribute('data-opt') : '2';
+                var scope = r ? parseFloat(r.value) : 79;
+                var isFull = (opt === '3');
+                var isLink = (opt === '1');
+                var lockAddons = isFull || isLink;
+
+                // المجموعتان مشمولتان في الباقة الكاملة، وخارج نطاق خيار الربط
+                addons.forEach(function (a) {
+                    a.disabled = lockAddons;
+                    if (lockAddons) { a.checked = false; }
+                    var wrap = a.closest('label');
+                    wrap.style.opacity = lockAddons ? '0.45' : '1';
+                    wrap.style.cursor = lockAddons ? 'not-allowed' : 'pointer';
+                });
+                addonNote.classList.toggle('hidden', !lockAddons);
+                if (lockAddons) {
+                    addonNoteText.textContent = isFull
+                        ? 'المجموعتان مشمولتان أصلًا في الباقة الكاملة'
+                        : 'المجموعتان خارج نطاق خيار الربط — لا نبني منصة في هذا الخيار';
+                }
+
+                addons.forEach(function (a) {
+                    if (a.checked) { scope += parseFloat(a.getAttribute('data-w')); }
+                });
+
+                var adjTotal = 0;
+                adjInputs.forEach(function (i) {
+                    if (i === reuse) { adjTotal -= num(i); }
+                    else { adjTotal += num(i); }
+                });
+
+                var total = scope + adjTotal;
+                if (total < 0) { total = 0; }
+
+                var t = num(tInput);
+                var price = Math.round(t * total / 100);
+                // تقريب لأقرب 1,000 ر.س لعرضه على العميل
+                var rounded = Math.round(price / 1000) * 1000;
+
+                outScope.textContent = scope;
+                outAdj.textContent = (adjTotal > 0 ? '+' : '') + adjTotal;
+                outTotalW.textContent = Math.round(total * 10) / 10;
+                outPct.textContent = (Math.round(total * 10) / 10) + '%';
+                outPrice.textContent = price.toLocaleString('en-US');
+                outRounded.textContent = rounded.toLocaleString('en-US');
+
+                var tr = document.querySelector('input[name="buildTrack"]:checked');
+                var trackKey = tr ? tr.getAttribute('data-track') : 'wp';
+                outTrack.textContent = (trackKey === 'native') ? 'مسار التطوير الأصلي' : 'مسار ووردبريس';
+                trackCards.forEach(function (c) {
+                    c.classList.toggle('selected', c.getAttribute('data-track') === trackKey);
+                });
+
+                optCards.forEach(function (c) {
+                    c.classList.toggle('selected', c.getAttribute('data-opt') === opt);
+                });
+            }
+
+            tInput.addEventListener('input', recalc);
+            trackRadios.forEach(function (r) {
+                r.addEventListener('change', function () {
+                    // تغيير المسار يعيد ضبط T على أساس الاحتساب المعتمد
+                    tInput.value = r.value;
+                    recalc();
+                });
+            });
+            radios.forEach(function (r) { r.addEventListener('change', recalc); });
+            addons.forEach(function (a) { a.addEventListener('change', recalc); });
+            adjInputs.forEach(function (i) { i.addEventListener('input', recalc); });
+
+            recalc();
+        })();
+    </script>
+
+</body>
+
+</html>
